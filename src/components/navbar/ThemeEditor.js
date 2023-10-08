@@ -3,7 +3,8 @@ import {
   ThemeEditor as ThemeEditorContainer,
   ThemeEditorDrawer,
   ThemeEditorColors,
-  ThemeEditorFontSizes
+  ThemeEditorFontSizes,
+  ColorModeToggle
 } from '@hypertheme-editor/chakra-ui'
 import { Button, Icon } from '@chakra-ui/react'
 import { CgColorPicker } from 'react-icons/cg'
@@ -13,16 +14,12 @@ import { MdPalette } from 'react-icons/md'
 export function ThemeEditor(props) {
     return (
         <ThemeEditorContainer>
-          <ThemeEditorButton {...props} />
-          <ThemeEditorDrawer hideUpgradeToPro>
-            <ThemeEditorColors icon={CgColorPicker} title="Colors" />
-            <ThemeEditorFontSizes icon={ImFontSize} title="Font Sizes" />
-          </ThemeEditorDrawer>
+          <ThemeEditorButton {...props}/>
         </ThemeEditorContainer>
       )
 }
 
-function ThemeEditorButton({ onOpen, navbarIcon, ...rest }) {
+function ThemeEditorButton({ ...rest }) {
   return (
     <Button
         variant='no-hover'
@@ -33,16 +30,11 @@ function ThemeEditorButton({ onOpen, navbarIcon, ...rest }) {
         h='18px'
         w='max-content'
         _focus={{ boxShadow: 'none' }}
-        onClick={onOpen}
         {...rest}
+        mr={2}
     >
-        <Icon
-            me='10px'
-            h='18px'
-            w='18px'
-            color={navbarIcon}
-            as={MdPalette}
-        />
+               <ColorModeToggle/>
+
       </Button>
   )
 }
