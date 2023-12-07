@@ -23,7 +23,7 @@ const ExportToExcel = () => {
         const fetchData = async () => {
             try {
               const response = await fetch(
-                `https://portal-backend-mhgo.onrender.com/week?client=tacobell&startDate=${startDate}&endDate=${endDate}&download=false`
+                `http://localhost:3000/week?client=tacobell&startDate=${startDate}&endDate=${endDate}&download=false`
               );
               const jsonData = await response.json();
               console.log(jsonData.data)
@@ -40,7 +40,7 @@ const ExportToExcel = () => {
         }, [startDate, endDate]);
     
         
-    const handleExport = () => {
+    const handleExport = ({totalFabiolaTheodore,totalHectorCastillo,columnHeaders}) => {
         const wb = XLSX.utils.book_new();
       
         // Function to create a worksheet for a manager
@@ -75,43 +75,30 @@ const ExportToExcel = () => {
             entry.ActualFoodCostPercent
           ]);
           const ws = XLSX.utils.json_to_sheet(managerData);
-          return ws;
+          return managerData;
         };
       
-        const calculateTotal = (entries) => {
-            const total = entries.reduce((acc, entry) => {
-              entry.forEach((value, index) => {
-                if (index !== 0) {
-                  acc[index] = (acc[index] || 0) + value;
-                }
-              });
-              return acc;
-            }, []);
-          
-            // Calculate averages (if needed)
-            const totalCount = entries.length;
-            return total.map((sum) => sum / totalCount);
-          };
-
-          
         // Create worksheets for each manager
         const fabiolaWorksheet = createWorksheet("Fabiola Theodore");
         const hectorWorksheet = createWorksheet("Hector Castillo");
       
         // Define style for title rows (bold and larger font size)
-        const titleStyle = XLSX.utils.book_new().SS[0].Styles['Title'];
-        const titleOpts = { font: { bold: true, sz: 14 } }; // Bold and font size 14
-      
+     
         // Merge data into a single worksheet with styled title rows for each manager
         const combinedData = [
             ['Fabiola Theodore'],
-            ...XLSX.utils.sheet_to_json(fabiolaWorksheet),
-            ['Hector Castillo'],
-            ...XLSX.utils.sheet_to_json(hectorWorksheet),
-            ['Company Sums / Averages'],
-            ['Yum&Chill',...calculateTotal(totalFabiolaTheodore),]
-          ];
-          
+            columnHeaders,
+            ...fabiolaWorksheet,
+            totalFabiolaTheodore,
+           ['Hector Castillo'],
+           columnHeaders,
+           ...hectorWorksheet,
+            totalHectorCastillo,
+            ['total'],
+            columnHeaders,
+           [ ...totalFabiolaTheodore?.map((d,i)=>(totalFabiolaTheodore[i]+totalHectorCastillo[i] || ""))]
+        ];
+        console.log(combinedData)
         const combinedWorksheet = XLSX.utils.json_to_sheet(combinedData, { opts: { '!cols': [{ width: 15 }] } });
       
         // Add the combined worksheet to the workbook
@@ -122,62 +109,62 @@ const ExportToExcel = () => {
       };
       const FabiolaTheodore = data.filter((data) => data.manager === "Fabiola Theodore").map((entry) => [
         entry.storeName + ' (' + entry.storeCode  + ')',
-        entry.weeklySalesCY,
-        entry.weeklySalesLY,
-        entry.weeklySalesCY - entry.weeklySalesLY,  // Sales Growth $
+        entry.weeklySalesCY|| '',
+        entry.weeklySalesLY|| '',
+        entry.weeklySalesCY - entry.weeklySalesLY|| '',  // Sales Growth $
         (entry.weeklySalesCY - entry.weeklySalesLY) / entry.weeklySalesLY * 100,  // Sales Growth %
-        entry.weeklyCYTrans,
-        entry.weeklyLYTrans,
-        entry.weeklyCYTrans - entry.weeklyLYTrans,  // Trans Growth #
+        entry.weeklyCYTrans|| '',
+        entry.weeklyLYTrans|| '',
+        entry.weeklyCYTrans - entry.weeklyLYTrans|| '',  // Trans Growth #
         (entry.weeklyCYTrans - entry.weeklyLYTrans) / entry.weeklyLYTrans * 100,  // Trans Growth %
-        entry.weeklyGC,
-        entry.weeklyLYGC,
-        entry.weeklyGC - entry.weeklyLYGC,  // GC Growth $
-        (entry.weeklyGC - entry.weeklyLYGC) / entry.weeklyLYGC * 100,  // GC Growth %
-        entry.ICOSVarPercent,
-        entry.LaborVar,
-        entry.LaborCost,
-        entry.LaborCost / entry.weeklySalesCY * 100,  // Labor %
-        entry.DeletionsAfter,
-        entry.CashOverShort,
-        entry.DrinkOrder,
-        entry.DeliverySale,
-        entry.KioskSale,
-        entry.EmployeeMeal,
-        entry.OTDOYPay,
-        entry.OTHr,
-        entry.ActualFoodCost,
-        entry.ActualFoodCostPercent
+        entry.weeklyGC|| '',
+        entry.weeklyLYGC|| '',
+        entry.weeklyGC - entry.weeklyLYGC|| '',  // GC Growth $
+        (entry.weeklyGC - entry.weeklyLYGC) / entry.weeklyLYGC * 100|| '',  // GC Growth %
+        entry.ICOSVarPercent|| '',
+        entry.LaborVar|| '',
+        entry.LaborCost|| '',
+        entry.LaborCost / entry.weeklySalesCY * 100|| '',  // Labor %
+        entry.DeletionsAfter|| '',
+        entry.CashOverShort|| '',
+        entry.DrinkOrder|| '',
+        entry.DeliverySale|| '',
+        entry.KioskSale|| '',
+        entry.EmployeeMeal|| '',
+        entry.OTDOYPay|| '',
+        entry.OTHr|| '',
+        entry.ActualFoodCost|| '',
+        entry.ActualFoodCostPercent || '',
       ]);
       const HectorCastillo = data.filter((data) => data.manager === "Hector Castillo").map((entry) => [
         entry.storeName + ' (' + entry.storeCode  + ')',
-        entry.weeklySalesCY,
-        entry.weeklySalesLY,
-        entry.weeklySalesCY - entry.weeklySalesLY,  // Sales Growth $
+        entry.weeklySalesCY|| '',
+        entry.weeklySalesLY|| '',
+        entry.weeklySalesCY - entry.weeklySalesLY|| '',  // Sales Growth $
         (entry.weeklySalesCY - entry.weeklySalesLY) / entry.weeklySalesLY * 100,  // Sales Growth %
-        entry.weeklyCYTrans,
-        entry.weeklyLYTrans,
-        entry.weeklyCYTrans - entry.weeklyLYTrans,  // Trans Growth #
+        entry.weeklyCYTrans|| '',
+        entry.weeklyLYTrans|| '',
+        entry.weeklyCYTrans - entry.weeklyLYTrans|| '',  // Trans Growth #
         (entry.weeklyCYTrans - entry.weeklyLYTrans) / entry.weeklyLYTrans * 100,  // Trans Growth %
-        entry.weeklyGC,
-        entry.weeklyLYGC,
-        entry.weeklyGC - entry.weeklyLYGC,  // GC Growth $
-        (entry.weeklyGC - entry.weeklyLYGC) / entry.weeklyLYGC * 100,  // GC Growth %
-        entry.ICOSVarPercent,
-        entry.LaborVar,
-        entry.LaborCost,
-        entry.LaborCost / entry.weeklySalesCY * 100,  // Labor %
-        entry.DeletionsAfter,
-        entry.CashOverShort,
-        entry.DrinkOrder,
-        entry.DeliverySale,
-        entry.KioskSale,
-        entry.EmployeeMeal,
-        entry.OTDOYPay,
-        entry.OTHr,
-        entry.ActualFoodCost,
-        entry.ActualFoodCostPercent
-      ]);
+        entry.weeklyGC|| '',
+        entry.weeklyLYGC|| '',
+        entry.weeklyGC - entry.weeklyLYGC|| '',  // GC Growth $
+        (entry.weeklyGC - entry.weeklyLYGC) / entry.weeklyLYGC * 100|| '',  // GC Growth %
+        entry.ICOSVarPercent|| '',
+        entry.LaborVar|| '',
+        entry.LaborCost|| '',
+        entry.LaborCost / entry.weeklySalesCY * 100|| '',  // Labor %
+        entry.DeletionsAfter|| '',
+        entry.CashOverShort|| '',
+        entry.DrinkOrder|| '',
+        entry.DeliverySale|| '',
+        entry.KioskSale|| '',
+        entry.EmployeeMeal|| '',
+        entry.OTDOYPay|| '',
+        entry.OTHr|| '',
+        entry.ActualFoodCost|| '',
+        entry.ActualFoodCostPercent || '',
+         ]);
 
       let columnHeaders = [
         "Store",
@@ -216,6 +203,7 @@ const ExportToExcel = () => {
           if (index !== 0) {
             total[index] = (total[index] || 0) + value;
           }
+          else total[index]  = ''
         });
         return total;
       }, []);
@@ -226,7 +214,7 @@ const ExportToExcel = () => {
       
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }} w="100%">
-      <HStack bg={'white'}>
+      <HStack>
         <Input
           type="date"
           value={startDate}
@@ -237,9 +225,8 @@ const ExportToExcel = () => {
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
         />
-        
       </HStack>
-      <Button onClick={handleExport}>Export to Excel</Button>
+      <Button onClick={()=>handleExport({totalFabiolaTheodore,totalHectorCastillo,columnHeaders})}>Export to Excel</Button>
 
       <Heading bg={"white"} rounded={"lg"} textAlign={"center"} py={2}>
       Company Sums / Averages      </Heading>

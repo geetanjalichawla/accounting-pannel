@@ -24,6 +24,7 @@ import DataTables from "views/admin/dataTables";
 
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
+import SalesReport from "views/weeklycompaion";
 
 const routes = [
   {
@@ -84,6 +85,14 @@ const routes = [
     icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
 
     component: Week,
+  },
+  {
+    name: 'Messages',
+    layout: '/admin',
+    path: '/sales',
+    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
+
+    component: SalesReport,
   },
   {
     name: 'Order List',
