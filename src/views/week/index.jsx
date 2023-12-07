@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   Thead,
@@ -9,243 +9,37 @@ import {
   Button,
   Box,
   Heading,
+  HStack,
+  Input,
 } from "@chakra-ui/react";
 import * as XLSX from "xlsx";
-const data = [
-    {
-        "_id": 29748,
-        "storeName": "Jersey City",
-        "storeCode": 29748,
-        "manager": "Fabiola Theodore",
-        "weeklySalesCY": 3013.91,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.46,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": -103.77000000000001,
-        "DeliverySale": 4.0600000000000005,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 381.09,
-        "OTHr": 380.41999999999996
-    },
-    {
-        "_id": 30685,
-        "storeName": "Milltown",
-        "storeCode": 30685,
-        "manager": "Fabiola Theodore",
-        "weeklySalesCY": 4423.67,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.35,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": -10.65,
-        "DeliverySale": 5.03,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 456.6,
-        "OTHr": 438.82
-    },
-    {
-        "_id": 31281,
-        "storeName": "East Brunswick",
-        "storeCode": 31281,
-        "manager": "Hector Castillo",
-        "weeklySalesCY": 6522.89,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.4,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": 0,
-        "DeliverySale": 5.12,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 590.89,
-        "OTHr": 590.45
-    },
-    {
-        "_id": 31508,
-        "storeName": "Orange",
-        "storeCode": 31508,
-        "manager": "Hector Castillo",
-        "weeklySalesCY": 8454.85,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.34,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": 0,
-        "DeliverySale": 5.36,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 652.14,
-        "OTHr": 649.57
-    },
-    {
-        "_id": 32387,
-        "storeName": "Somerville",
-        "storeCode": 32387,
-        "manager": "Fabiola Theodore",
-        "weeklySalesCY": 7992.43,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.71,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": 0,
-        "DeliverySale": 5.66,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 848.14,
-        "OTHr": 848.14
-    },
-    {
-        "_id": 32662,
-        "storeName": "Irvington",
-        "storeCode": 32662,
-        "manager": "Hector Castillo",
-        "weeklySalesCY": 6786.89,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.42,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": 0,
-        "DeliverySale": 6.67,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 446.74,
-        "OTHr": 440.11
-    },
-    {
-        "_id": 34804,
-        "storeName": "Bayonne",
-        "storeCode": 34804,
-        "manager": "Fabiola Theodore",
-        "weeklySalesCY": 4389.15,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.67,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": 0,
-        "DeliverySale": 5.57,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 737.77,
-        "OTHr": 721.28
-    },
-    {
-        "_id": 34806,
-        "storeName": "South Brunswick",
-        "storeCode": 34806,
-        "manager": "Hector Castillo",
-        "weeklySalesCY": 5019.65,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.33,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": 0,
-        "DeliverySale": 5.36,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 612.85,
-        "OTHr": 612.54
-    },
-    {
-        "_id": 38857,
-        "storeName": "Montgomery",
-        "storeCode": 38857,
-        "manager": "Fabiola Theodore",
-        "weeklySalesCY": 3702.2200000000003,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.6300000000000001,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": 1.93,
-        "DeliverySale": 3.9699999999999998,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 397.73,
-        "OTHr": 395.75
-    },
-    {
-        "_id": 40167,
-        "storeName": "East Orange",
-        "storeCode": 40167,
-        "manager": "Hector Castillo",
-        "weeklySalesCY": 5377.01,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.4100000000000001,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": -786.73,
-        "DeliverySale": 5.73,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 400.89,
-        "OTHr": 395.63
-    },
-    {
-        "_id": 40482,
-        "storeName": "North brunswick",
-        "storeCode": 40482,
-        "manager": "Hector Castillo",
-        "weeklySalesCY": 4215.67,
-        "weeklySalesLY": 0,
-        "weeklyCYTrans": 0,
-        "weeklyLYTrans": 0,
-        "ICOSVarPercent": 1.33,
-        "LaborVar": 0,
-        "LaborCost": 0,
-        "DeletionsAfter": 0,
-        "CashOverShort": 0,
-        "DrinkOrder": 0,
-        "DeliverySale": 5.65,
-        "KioskSale": 0,
-        "EmployeeMeal": 0,
-        "OTDOYPay": 370.59000000000003,
-        "OTHr": 370.59000000000003
-    }
-]
-const ExportToExcel = () => {
 
+const ExportToExcel = () => {
+    const [startDate, setStartDate] = useState("2023-11-15");
+    const [endDate, setEndDate] = useState("2023-11-22");
+    const [data, setData] = useState([]);
+  
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+              const response = await fetch(
+                `https://portal-backend-mhgo.onrender.com/week?client=tacobell&startDate=${startDate}&endDate=${endDate}&download=false`
+              );
+              const jsonData = await response.json();
+              console.log(jsonData.data)
+              setData(jsonData.data); // Assuming the API response is an array of data objects
+            } catch (error) {
+              console.error("Error fetching data:", error);
+            }
+          };
+      
+          // Fetch data when startDate or endDate changes
+          if (startDate && endDate) {
+            fetchData();
+          }
+        }, [startDate, endDate]);
+    
+        
     const handleExport = () => {
         const wb = XLSX.utils.book_new();
       
@@ -284,6 +78,22 @@ const ExportToExcel = () => {
           return ws;
         };
       
+        const calculateTotal = (entries) => {
+            const total = entries.reduce((acc, entry) => {
+              entry.forEach((value, index) => {
+                if (index !== 0) {
+                  acc[index] = (acc[index] || 0) + value;
+                }
+              });
+              return acc;
+            }, []);
+          
+            // Calculate averages (if needed)
+            const totalCount = entries.length;
+            return total.map((sum) => sum / totalCount);
+          };
+
+          
         // Create worksheets for each manager
         const fabiolaWorksheet = createWorksheet("Fabiola Theodore");
         const hectorWorksheet = createWorksheet("Hector Castillo");
@@ -294,11 +104,14 @@ const ExportToExcel = () => {
       
         // Merge data into a single worksheet with styled title rows for each manager
         const combinedData = [
-          ['Fabiola Theodore'],
-          ...XLSX.utils.sheet_to_json(fabiolaWorksheet),
-         ['Hector Castillo'],
-          ...XLSX.utils.sheet_to_json(hectorWorksheet)
-        ];
+            ['Fabiola Theodore'],
+            ...XLSX.utils.sheet_to_json(fabiolaWorksheet),
+            ['Hector Castillo'],
+            ...XLSX.utils.sheet_to_json(hectorWorksheet),
+            ['Company Sums / Averages'],
+            ['Yum&Chill',...calculateTotal(totalFabiolaTheodore),]
+          ];
+          
         const combinedWorksheet = XLSX.utils.json_to_sheet(combinedData, { opts: { '!cols': [{ width: 15 }] } });
       
         // Add the combined worksheet to the workbook
@@ -395,9 +208,68 @@ const ExportToExcel = () => {
         "Actual Food Cost",
         "Actual Food Cost %"
       ];
+      console.log({FabiolaTheodore,HectorCastillo})
+      const calculateTotal = (entries) => entries.reduce((total, entry) => {
+        // Iterate over each property and sum the values
+        entry.forEach((value, index) => {
+          // Skip the first element, which is the storeName
+          if (index !== 0) {
+            total[index] = (total[index] || 0) + value;
+          }
+        });
+        return total;
+      }, []);
+      
+      // Calculate totals for FabiolaTheodore and HectorCastillo
+      const totalFabiolaTheodore = calculateTotal(FabiolaTheodore);
+      const totalHectorCastillo = calculateTotal(HectorCastillo);
       
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }} w="100%">
+      <HStack bg={'white'}>
+        <Input
+          type="date"
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+        />
+        <Input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+        />
+        
+      </HStack>
+      <Button onClick={handleExport}>Export to Excel</Button>
+
+      <Heading bg={"white"} rounded={"lg"} textAlign={"center"} py={2}>
+      Company Sums / Averages      </Heading>
+
+      <Box w={'full'} overflow={'auto'}> 
+<Table
+        variant="simple"
+        bg={"white"}
+        rounded={"lg"}
+        overflow={"scroll"}
+        w={"full"}
+      >
+        <Thead>
+          <Tr>
+          {columnHeaders.map(col=><Th>{col}</Th>)
+ }
+          </Tr>
+        </Thead>
+        <Tbody>
+              <Tr>
+                <Td>Yum&Chill</Td>
+                {
+                    totalFabiolaTheodore.map((store , index)=><Td>{totalFabiolaTheodore[index] + totalHectorCastillo[index]}</Td>)
+                }
+            </Tr>
+        </Tbody>
+      </Table>
+
+</Box>
+
       <Heading bg={"white"} rounded={"lg"} textAlign={"center"} py={2}>
         Fabiola Theodore
       </Heading>
@@ -425,6 +297,12 @@ const ExportToExcel = () => {
                 }
               </Tr>
             ))}
+              <Tr>
+                <Td>sum / avarages</Td>
+                {
+                    totalFabiolaTheodore.map(store=><Td>{store}</Td>)
+                }
+            </Tr>
         </Tbody>
       </Table>
 
@@ -442,51 +320,29 @@ const ExportToExcel = () => {
         w={"full"}
       >
         <Thead>
-          <Tr>
-            <Th>Store</Th>
-            <Th>CY Net Sales</Th>
-            <Th>LY Net Sales</Th>
-            <Th>weeklyCYTrans</Th>
-            <Th>weeklyLYTrans</Th>
-            <Th>ICOSVarPercent</Th>
-            <Th>LaborVar</Th>
-            <Th>LaborCost</Th>
-            <Th>DeletionsAfter</Th>
-            <Th>CashOverShort</Th>
-            <Th>DrinkOrder</Th>
-            <Th>DeliverySale</Th>
-            <Th>KioskSale</Th>
-            <Th>EmployeeMeal</Th>
-            <Th>OTDOYPay</Th>
-            <Th>OTHr</Th>
-            <Th>Sums / Averages</Th>
+        <Tr>
+          {columnHeaders.map(col=><Th>{col}</Th>)
+ }
           </Tr>
         </Thead>
         <Tbody>
-          {     HectorCastillo.map((store) => (
+          {
+           HectorCastillo.map((store) => (
               <Tr key={store._id}>
-                <Td>{store.storeName}</Td>
-                <Td>{store.weeklySalesCY}</Td>
-                <Td>{store.weeklySalesLY}</Td>
-                <Td>{store.weeklyCYTrans}</Td>
-                <Td>{store.weeklyLYTrans}</Td>
-                <Td>{store.ICOSVarPercent}</Td>
-                <Td>{store.LaborVar}</Td>
-                <Td>{store.LaborCost}</Td>
-                <Td>{store.DeletionsAfter}</Td>
-                <Td>{store.CashOverShort}</Td>
-                <Td>{store.DrinkOrder}</Td>
-                <Td>{store.DeliverySale}</Td>
-                <Td>{store.KioskSale}</Td>
-                <Td>{store.EmployeeMeal}</Td>
-                <Td>{store.OTDOYPay}</Td>
-                <Td>{store.OTHr}</Td>
+                {
+                    store.map(store=><Td>{store}</Td>)
+                }
               </Tr>
             ))}
+            <Tr>
+                <Td>sum / avarages</Td>
+                {
+                    totalHectorCastillo.map(store=><Td>{store}</Td>)
+                }
+            </Tr>
         </Tbody>
       </Table>
       </Box>
-      <Button onClick={handleExport}>Export to Excel</Button>
     </Box>
   );
 };
