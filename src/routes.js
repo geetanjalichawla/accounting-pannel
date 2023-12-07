@@ -9,10 +9,12 @@ import {
   MdOutlineShoppingCart,
   MdMessage,
   MdAddBox,
+  MdWeekend,
 } from "react-icons/md";
 
 import Messages from 'views/main/messages/index';
 import OrderList from 'views/main/ecommerce/orderList/index';
+import Week from 'views/week/index.jsx';
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
@@ -74,6 +76,14 @@ const routes = [
     icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
 
     component: Messages,
+  },
+  {
+    name: 'Messages',
+    layout: '/admin',
+    path: '/week',
+    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
+
+    component: Week,
   },
   {
     name: 'Order List',
