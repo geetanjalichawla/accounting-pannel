@@ -23,7 +23,7 @@ const ExportToExcel = () => {
         const fetchData = async () => {
             try {
               const response = await fetch(
-                `http://localhost:3000/week?client=tacobell&startDate=${startDate}&endDate=${endDate}&download=false`
+                `https://portal-backend-mhgo.onrender.com/week?client=tacobell&startDate=${startDate}&endDate=${endDate}&download=false`
               );
               const jsonData = await response.json();
               console.log(jsonData.data)
