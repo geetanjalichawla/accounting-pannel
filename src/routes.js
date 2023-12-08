@@ -10,6 +10,7 @@ import {
   MdMessage,
   MdAddBox,
   MdWeekend,
+  MdCompare,
 } from "react-icons/md";
 
 import Messages from 'views/main/messages/index';
@@ -26,6 +27,7 @@ import DataTables from "views/admin/dataTables";
 import SignInCentered from "views/auth/signIn";
 import SalesReport from "views/weeklycompaion";
 import FlashReport from "views/flashreport";
+import { GoReport } from "react-icons/go";
 
 const routes = [
   {
@@ -35,55 +37,55 @@ const routes = [
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: MainDashboard,
   },
-  {
-    name: "NFT Marketplace",
-    layout: "/admin",
-    path: "/nft-marketplace",
-    icon: (
-      <Icon
-        as={MdOutlineShoppingCart}
-        width='20px'
-        height='20px'
-        color='inherit'
-      />
-    ),
-    component: NFTMarketplace,
-    secondary: true,
-  },
-  {
-    name: "Data Tables",
-    layout: "/admin",
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-    path: "/data-tables",
-    component: DataTables,
-  },
-  {
-    name: "Profile",
-    layout: "/admin",
-    path: "/profile",
-    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    component: Profile,
-  },
-  {
-    name: "Sign In",
-    layout: "/auth",
-    path: "/sign-in",
-    icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
-    component: SignInCentered,
-  },
-  {
-    name: 'Messages',
-    layout: '/admin',
-    path: '/messages',
-    icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
+  // {
+  //   name: "NFT Marketplace",
+  //   layout: "/admin",
+  //   path: "/nft-marketplace",
+  //   icon: (
+  //     <Icon
+  //       as={MdOutlineShoppingCart}
+  //       width='20px'
+  //       height='20px'
+  //       color='inherit'
+  //     />
+  //   ),
+  //   component: NFTMarketplace,
+  //   secondary: true,
+  // },
+  // {
+  //   name: "Data Tables",
+  //   layout: "/admin",
+  //   icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+  //   path: "/data-tables",
+  //   component: DataTables,
+  // },
+  // {
+  //   name: "Profile",
+  //   layout: "/admin",
+  //   path: "/profile",
+  //   icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+  //   component: Profile,
+  // },
+  // {
+  //   name: "Sign In",
+  //   layout: "/auth",
+  //   path: "/sign-in",
+  //   icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+  //   component: SignInCentered,
+  // },
+  // {
+  //   name: 'Messages',
+  //   layout: '/admin',
+  //   path: '/messages',
+  //   icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
 
-    component: Messages,
-  },
+  //   component: Messages,
+  // },
   {
     name: 'Weekly Report',
     layout: '/admin',
     path: '/week',
-    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
 
     component: Week,
   },
@@ -91,7 +93,7 @@ const routes = [
     name: 'Weekly Compaion',
     layout: '/admin',
     path: '/sales',
-    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
 
     component: SalesReport,
   },
