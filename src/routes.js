@@ -25,6 +25,7 @@ import DataTables from "views/admin/dataTables";
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
 import SalesReport from "views/weeklycompaion";
+import FlashReport from "views/flashreport";
 
 const routes = [
   {
@@ -79,7 +80,7 @@ const routes = [
     component: Messages,
   },
   {
-    name: 'Messages',
+    name: 'Weekly Report',
     layout: '/admin',
     path: '/week',
     icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
@@ -87,7 +88,7 @@ const routes = [
     component: Week,
   },
   {
-    name: 'Messages',
+    name: 'Weekly Compaion',
     layout: '/admin',
     path: '/sales',
     icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
@@ -95,12 +96,12 @@ const routes = [
     component: SalesReport,
   },
   {
-    name: 'Order List',
+    name: 'Daily Flash Report',
     layout: '/admin',
-    path: '/order-list',
-    icon: <Icon as={MdAddBox} width='20px' height='20px' color='inherit' />,
+    path: '/flash-report',
+    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
 
-    component: OrderList,
+    component: FlashReport,
   },
 ];
 
