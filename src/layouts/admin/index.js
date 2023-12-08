@@ -137,7 +137,7 @@ export default function Dashboard(props) {
 						</Portal>
 
 						{getRoute() ? (
-							<Box mx='auto' p={{ base: '20px', md: '30px' }} pe='20px' minH='100vh' pt='50px'>
+							<Box mx='auto' p={{ base: '20px', md: '30px' }} pe='20px' minH='100vh' pt='50px' w="full">
 								<Switch>
 									{getRoutes(routes)}
 									<Redirect from='/' to='/admin/default' />

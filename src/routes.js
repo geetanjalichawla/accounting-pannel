@@ -9,10 +9,12 @@ import {
   MdOutlineShoppingCart,
   MdMessage,
   MdAddBox,
+  MdWeekend,
 } from "react-icons/md";
 
 import Messages from 'views/main/messages/index';
 import OrderList from 'views/main/ecommerce/orderList/index';
+import Week from 'views/week/index.jsx';
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
@@ -22,6 +24,8 @@ import DataTables from "views/admin/dataTables";
 
 // Auth Imports
 import SignInCentered from "views/auth/signIn";
+import SalesReport from "views/weeklycompaion";
+import FlashReport from "views/flashreport";
 
 const routes = [
   {
@@ -76,12 +80,28 @@ const routes = [
     component: Messages,
   },
   {
-    name: 'Order List',
+    name: 'Weekly Report',
     layout: '/admin',
-    path: '/order-list',
-    icon: <Icon as={MdAddBox} width='20px' height='20px' color='inherit' />,
+    path: '/week',
+    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
 
-    component: OrderList,
+    component: Week,
+  },
+  {
+    name: 'Weekly Compaion',
+    layout: '/admin',
+    path: '/sales',
+    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
+
+    component: SalesReport,
+  },
+  {
+    name: 'Daily Flash Report',
+    layout: '/admin',
+    path: '/flash-report',
+    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
+
+    component: FlashReport,
   },
 ];
 
