@@ -13,7 +13,7 @@ const SalesReport = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_FRONTEND}/weekly-report/weekly-sales?week=${week}&period=${period}&year=${year}`);
+        const response = await axios.get(`${process.env.REACT_APP_FRONTEND}/weekly-report/weeklygrubhub?week=${week}&period=${period}&year=${year}`);
         const apiData = response.data;
         setData(apiData);
       } catch (error) {
@@ -101,7 +101,7 @@ const SalesReport = () => {
         <input type="number" placeholder="Year" value={year} onChange={(e) => setYear(parseInt(e.target.value))} />
         <Button onClick={handleDownload}>Download Excel</Button>
       </Box>
-      <Heading size='xl' mb={'2'}>Sales Report</Heading>
+      <Heading size='xl' mb={'2'}>Weekly grubhub Report</Heading>
       {data && (
         Object.keys(data?.data)?.map((type) => {
           console.log({ type })

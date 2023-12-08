@@ -27,6 +27,9 @@ import DataTables from "views/admin/dataTables";
 import SignInCentered from "views/auth/signIn";
 import SalesReport from "views/weeklycompaion";
 import FlashReport from "views/flashreport";
+import uberEats from "views/uberEats";
+import doordash from "views/weekly-doordash";
+import weeklygrubhub from "views/weeklygrubhub";
 import { GoReport } from "react-icons/go";
 
 const routes = [
@@ -90,6 +93,30 @@ const routes = [
     component: Week,
   },
   {
+    name: 'Weekly uberEats',
+    layout: '/admin',
+    path: '/uberEats',
+    icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+
+    component: uberEats,
+  },
+  {
+    name: 'Weekly grubhub',
+    layout: '/admin',
+    path: '/grubhub',
+    icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+
+    component: weeklygrubhub,
+  },
+  {
+    name: 'Weekly doordash',
+    layout: '/admin',
+    path: '/doordash',
+    icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+
+    component: doordash,
+  },
+  {
     name: 'Weekly Compaion',
     layout: '/admin',
     path: '/sales',
@@ -108,3 +135,4 @@ const routes = [
 ];
 
 export default routes;
+
