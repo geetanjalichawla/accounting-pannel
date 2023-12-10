@@ -76,62 +76,145 @@ const routes = [
   //   icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
   //   component: SignInCentered,
   // },
-  // {
-  //   name: 'Messages',
-  //   layout: '/admin',
-  //   path: '/messages',
-  //   icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
-
-  //   component: Messages,
-  // },
   {
-    name: 'Weekly Report',
+    name: 'TaccoBells',
     layout: '/admin',
-    path: '/week',
-    icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-
-    component: Week,
+    collapse: true,
+    path: '/messages',
+    icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
+    items:[
+      {
+        name: 'Weekly Report',
+        layout: '/admin',
+        path: '/week-report',
+        icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+        component: Week,
+      },
+      {
+        name: 'weekly comparaition',
+        layout: '/admin',
+       
+        icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+        collapse: true,
+        component: <></>,
+        path: "/jlj",
+    
+        items: [ {
+          name: 'Weekly uberEats',
+          layout: '/admin',
+          path: '/uberEats',
+          icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+      
+          component: uberEats,
+        },
+        {
+          name: 'Weekly grubhub',
+          layout: '/admin',
+          path: '/grubhub',
+          icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+      
+          component: weeklygrubhub,
+        },
+        {
+          name: 'Weekly doordash',
+          layout: '/admin',
+          path: '/doordash',
+          icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+      
+          component: doordash,
+        },
+        {
+          name: 'Weekly Compaion',
+          layout: '/admin',
+          path: '/sales',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+      
+          component: SalesReport,
+        },],
+      },
+    
+      {
+        name: 'Daily Flash Report',
+        layout: '/admin',
+        path: '/flash-report',
+        icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
+    
+        component: FlashReport,
+      },
+    ],
+    component: Messages,
   },
   {
-    name: 'Weekly uberEats',
+    name: 'Wendies',
     layout: '/admin',
-    path: '/uberEats',
-    icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-
-    component: uberEats,
+    collapse: true,
+    path: '/messages',
+    icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
+    items:[
+      {
+        name: 'Weekly Report',
+        layout: '/admin',
+        path: '/week-report',
+        icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+        component: Week,
+      },
+      {
+        name: 'weekly comparaition',
+        layout: '/admin',
+       
+        icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+        collapse: true,
+        component: <></>,
+        path: "/jlj",
+    
+        items: [ {
+          name: 'Weekly uberEats',
+          layout: '/admin',
+          path: '/uberEats',
+          icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+      
+          component: uberEats,
+        },
+        {
+          name: 'Weekly grubhub',
+          layout: '/admin',
+          path: '/grubhub',
+          icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+      
+          component: weeklygrubhub,
+        },
+        {
+          name: 'Weekly doordash',
+          layout: '/admin',
+          path: '/doordash',
+          icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
+      
+          component: doordash,
+        },
+        {
+          name: 'Weekly Compaion',
+          layout: '/admin',
+          path: '/sales',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+      
+          component: SalesReport,
+        },],
+      },
+    
+      {
+        name: 'Daily Flash Report',
+        layout: '/admin',
+        path: '/flash-report',
+        icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
+    
+        component: FlashReport,
+      },
+    ],
+    component: Messages,
   },
-  {
-    name: 'Weekly grubhub',
-    layout: '/admin',
-    path: '/grubhub',
-    icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
 
-    component: weeklygrubhub,
-  },
-  {
-    name: 'Weekly doordash',
-    layout: '/admin',
-    path: '/doordash',
-    icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-
-    component: doordash,
-  },
-  {
-    name: 'Weekly Compaion',
-    layout: '/admin',
-    path: '/sales',
-    icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
-
-    component: SalesReport,
-  },
-  {
-    name: 'Daily Flash Report',
-    layout: '/admin',
-    path: '/flash-report',
-    icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
-
-    component: FlashReport,
-  },
+ 
+ 
 ];
 
 export default routes;

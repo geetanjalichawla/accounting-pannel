@@ -84,11 +84,12 @@ export default function Dashboard(props) {
 	};
 	const getRoutes = (routes) => {
 		return routes.map((prop, key) => {
+			if (prop.collapse && prop.layout === '/admin') {
+				return getRoutes(prop.items);
+			}
+			else
 			if (prop.layout === '/admin') {
 				return <Route path={prop.layout + prop.path} component={prop.component} key={key} />;
-			}
-			if (prop.collapse) {
-				return getRoutes(prop.items);
 			}
 			if (prop.category) {
 				return getRoutes(prop.items);
@@ -140,7 +141,7 @@ export default function Dashboard(props) {
 							<Box mx='auto' p={{ base: '20px', md: '30px' }} pe='20px' minH='100vh' pt='50px' w="full">
 								<Switch>
 									{getRoutes(routes)}
-									<Redirect from='/' to='/admin/default' />
+									{/* <Redirect from='/' to='/admin/default' /> */}
 								</Switch>
 							</Box>
 						) : null}
