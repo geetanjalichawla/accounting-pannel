@@ -2,7 +2,7 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 // chakra imports
-import { Box, Flex, HStack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, HStack, Text, useColorModeValue } from "@chakra-ui/react";
 
 export function SidebarLinks(props) {
   //   Chakra color mode
@@ -23,28 +23,74 @@ export function SidebarLinks(props) {
     return location.pathname.includes(routeName);
   };
 
+  const route = [
+    {
+      path: '/',
+      
+    }
+  ]
+
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
   const createLinks = (routes) => {
     return routes.map((route, index) => {
-      if (route.category) {
+      if (route.items) {
     console.log(route.layout + route.path)
         return (
           <>
-            <Text
-              fontSize={"md"}
-              color={activeColor}
-              fontWeight='bold'
-              mx='auto'
-              ps={{
-                sm: "10px",
-                xl: "16px",
-              }}
-              pt='18px'
-              pb='12px'
-              key={index}>
-              {route.name}
-            </Text>
-            {createLinks(route.items)}
+          <Accordion allowToggle p={0}>
+            <AccordionItem key={index} p={0}>
+
+<AccordionButton p={0}>
+                <HStack
+                  spacing={
+                    activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
+                  }
+                  py='5px'
+                  ps='10px'>
+                  <Flex w='100%' alignItems='center' justifyContent='center'>
+                    <Box
+                      color={
+                        activeRoute(route.path.toLowerCase())
+                          ? activeIcon
+                          : textColor
+                      }
+                      me='18px'>
+                      {route.icon}
+                    </Box>
+                    <Text
+                      me='auto'
+                      color={
+                        activeRoute(route.path.toLowerCase())
+                          ? activeColor
+                          : textColor
+                      }
+                      fontWeight={
+                        activeRoute(route.path.toLowerCase())
+                          ? "bold"
+                          : "normal"
+                      }>
+                      {route.name}
+                    </Text>
+                  </Flex>
+                  <Box
+                    h='36px'
+                    w='4px'
+                    bg={
+                      activeRoute(route.path.toLowerCase())
+                        ? brandColor
+                        : "transparent"
+                    }
+                    borderRadius='5px'
+                  />
+                </HStack>
+        <AccordionIcon/>
+      </AccordionButton>
+      <AccordionPanel pb={4}>
+      {createLinks(route.items)}
+      </AccordionPanel>
+
+            </AccordionItem>
+            </Accordion>
           </>
         );
       } else if (
@@ -53,7 +99,7 @@ export function SidebarLinks(props) {
         route.layout === "/rtl"
       ) {
         return (
-          <NavLink key={index} to={ route.layout + route.path}>
+          <NavLink key={index} to={route.layout + route.path}>
             {route.icon ? (
               <Box>
                 <HStack
