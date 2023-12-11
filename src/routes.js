@@ -30,6 +30,12 @@ import FlashReport from "views/flashreport";
 import uberEats from "views/uberEats";
 import doordash from "views/weekly-doordash";
 import weeklygrubhub from "views/weeklygrubhub";
+import LabourHours from "views/labour-hours";
+import weeklyMclane from "views/weekly-mclanepurchase";
+import averageTicketSizePY from "views/weekly-averageTicketSizePY";
+import CustomerCount from "views/weekly-customercount";
+import mclanePercent from "views/mclanePercent";
+import employeeProductivity from "views/weekly-employeeProductivity";
 import { GoReport } from "react-icons/go";
 
 const routes = [
@@ -102,9 +108,8 @@ const routes = [
         items: [ {
           name: 'Weekly uberEats',
           layout: '/admin',
-          path: '/uberEats',
+          path: '/uber-eats',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-      
           component: uberEats,
         },
         {
@@ -112,7 +117,6 @@ const routes = [
           layout: '/admin',
           path: '/grubhub',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-      
           component: weeklygrubhub,
         },
         {
@@ -120,17 +124,63 @@ const routes = [
           layout: '/admin',
           path: '/doordash',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-      
           component: doordash,
         },
         {
-          name: 'Weekly Compaion',
+          name: 'Weekly Companion',
           layout: '/admin',
           path: '/sales',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
-      
           component: SalesReport,
-        },],
+        },
+        {
+          name: 'Mclane Purchase',
+          layout: '/admin',
+          path: '/weekly-mclane-purchase',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: weeklyMclane,
+        },
+        {
+          name: 'Customer Count',
+          layout: '/admin',
+          path: '/weekly-customer-count',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: CustomerCount,
+        },
+        {
+          name: 'Average Ticket Size',
+          layout: '/admin',
+          path: '/average-ticket-size',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: averageTicketSizePY,
+        },
+      
+        {
+          name: 'weekly employee Productivity',
+          layout: '/admin',
+          path: '/employee-productivity',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: employeeProductivity,
+        },
+      
+        {
+          name: 'weekly mclanePercent',
+          layout: '/admin',
+          path: '/mclane-percent',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: mclanePercent,
+        },
+      
+        // {
+        //   name: 'Labour Hours',
+        //   layout: '/admin',
+        //   path: '/labour-hours',
+        //   icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+      
+        //   component: LabourHours,
+        // },
+        
+      ],
       },
     
       {
@@ -138,12 +188,13 @@ const routes = [
         layout: '/admin',
         path: '/flash-report',
         icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
-    
         component: FlashReport,
       },
     ],
     component: Messages,
   },
+
+
   {
     name: 'Wendies',
     layout: '/admin',
