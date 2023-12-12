@@ -13,7 +13,7 @@ const SalesReport = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_FRONTEND}/weekly-uberEats/weeklygrubhub?week=${week}&period=${period}&year=${year}`);
+        const response = await axios.get(`${process.env.REACT_APP_FRONTEND}/weekly-report/weekly-uberEats?week=${week}&period=${period}&year=${year}`);
         const apiData = response.data;
         setData(apiData);
       } catch (error) {
