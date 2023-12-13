@@ -37,6 +37,7 @@ import CustomerCount from "views/weekly-customercount";
 import mclanePercent from "views/mclanePercent";
 import employeeProductivity from "views/weekly-employeeProductivity";
 import { GoReport } from "react-icons/go";
+import Dashboard from "views/dashboard";
 
 const routes = [
   {
@@ -44,7 +45,7 @@ const routes = [
     layout: "/admin",
     path: "/default",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    component: MainDashboard,
+    component: Dashboard,
   },
   // {
   //   name: "NFT Marketplace",
