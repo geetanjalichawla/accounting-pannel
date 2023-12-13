@@ -2,8 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
-import moment from 'moment';
-import { Box, Button, Heading, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, Heading, Input, SimpleGrid, Table, Tbody, Td, Th, Thead, Tr, useColorModeValue } from '@chakra-ui/react';
 
 const SalesReport = () => {
   const [data, setData] = useState(null);
@@ -48,19 +47,19 @@ const SalesReport = () => {
               report?.currentReport.week ?? '',
               report?.currentReport.period ?? '',
               report?.currentReport.year ?? '',
-              moment(report?.currentReport.from).format('YYYY-MM-DD') ?? '',
-              moment(report?.currentReport.to).format('YYYY-MM-DD') ?? '',
+              report?.currentReport.from.split('T')[0] ?? '',
+              report?.currentReport.to.split('T')[0] ?? '',
               'Total Sales',
-              ...(report?.currentReport?.report.map((entry) => entry.totalSales) ?? []),
+              ...(report?.currentReport?.report.map((entry) =>  parseFloat(entry.totalSales?.toFixed(2)) || 0) ?? []),
             ],
             [
               report.prevReport.week ?? '',
               report.prevReport.period ?? '',
               report.prevReport.year ?? '',
-              moment(report.prevReport.from).format('YYYY-MM-DD') ?? '',
-              moment(report.prevReport.to).format('YYYY-MM-DD') ?? '',
+              report.prevReport.from.split('T')[0] ?? '',
+              report.prevReport.to.split('T')[0] ?? '',
               'Total Sales',
-              ...(report?.prevReport?.report.map((entry) => entry.totalSales) ?? []),
+              ...(report?.prevReport?.report.map((entry) => parseFloat(entry.totalSales?.toFixed(2)) || 0 ) ?? []),
             ],
             [
               '--',
@@ -69,7 +68,7 @@ const SalesReport = () => {
               '--',
               '--',
               'Variance($)',
-              ...(report.variancedata.map((entry) => entry.totalSalesdiff) ?? []),
+              ...(report.variancedata.map((entry) => parseFloat(entry.totalSalesdiff?.toFixed(2)) || 0) ?? []),
             ],
             [
               '--',
@@ -78,7 +77,7 @@ const SalesReport = () => {
               '--',
               '--',
               'Variance(%)',
-              ...(report.variancedata.map((entry) => entry.variancePercentage) ?? []),
+              ...(report.variancedata.map((entry) =>  parseFloat(entry.variancePercentage?.toFixed(2)) || 0) ?? []),
             ],
           ];
         });
@@ -90,18 +89,21 @@ const SalesReport = () => {
   
       XLSX.writeFile(wb, 'SalesReport.xlsx');
     }
-  };
-  
+  };  
   return (
-    <Box pt={{ base: "130px", md: "80px", xl: "80px" }} w="100%" bg={'white'}>
-        <Box>
+    <Box pt={{ base: "130px", md: "80px", xl: "80px" }} w="100%" bg={'white'} p="2">
+        <HStack mb={2} gap={2}>
         {/* Add dynamic input fields for week, period, and year */}
-        <input type="number" placeholder="Week" value={week} onChange={(e) => setWeek(parseInt(e.target.value))} />
-        <input type="number" placeholder="Period" value={period} onChange={(e) => setPeriod(parseInt(e.target.value))} />
-        <input type="number" placeholder="Year" value={year} onChange={(e) => setYear(parseInt(e.target.value))} />
-        <Button onClick={handleDownload}>Download Excel</Button>
-      </Box>
-      <Heading size='xl' mb={'2'}>Sales Report</Heading>
+        <Input type="number" placeholder="Week" value={week} onChange={(e) => setWeek(parseInt(e.target.value))} />
+        <Input type="number" placeholder="Period" value={period} onChange={(e) => setPeriod(parseInt(e.target.value))} />
+     </HStack>
+     <HStack mb={2} gap={2}>
+     <Input type="number" placeholder="Year" value={year} onChange={(e) => setYear(parseInt(e.target.value))} />
+        <Button w={'full'} onClick={handleDownload} colorScheme='brand'>Download Excel</Button>
+
+     </HStack>
+
+      <Heading size='xl' mb={'2'}>Weekly Companion Report</Heading>
       {data && (
         Object.keys(data?.data)?.map((type) => {
           console.log({ type })
@@ -111,16 +113,14 @@ const SalesReport = () => {
             Object.keys(data.data[type]).map(type2=>{
               return (<Box p={"4"} key={type2} style={{overflow: 'auto', width:"100%"}}>
               <Heading size='md'>{type2}</Heading>
-<Box>
-<Table>
+        <Box>
+        <Table>
                 <Thead>
                   <Tr >
                     {['week', 'period', 'year', 'from', 'to', 'Store Name'].map((week,index) => 
-                    <Th  key={index}>{week}</Th>)}
-                    <Th >Store Name</Th>
-  
+                    <Th minW={"max-content"}  key={index}>{week}</Th>)}  
                     {data.data[type][type2].currentReport.report.map((entry) => (
-                      <Th  key={entry.storeName}>{entry.storeName}</Th>
+                      <Th minW={"max-content"}  key={entry.storeName}>{entry.storeName}</Th>
                     ))}
                   </Tr>
                 </Thead>
@@ -130,13 +130,13 @@ const SalesReport = () => {
                       [data.data[type][type2].currentReport.week,
                       data.data[type][type2].currentReport.period,
                       data.data[type][type2].currentReport.year,
-                      moment(data.data[type][type2].currentReport.from).format('YYYY-MM-DD'),
-                      moment(data.data[type][type2].currentReport.to).format('YYYY-MM-DD'),
-              ].map((week, index) => <Td key={index}>{week}</Td>)}
+                      data.data[type][type2].currentReport.from.split('T')[0],
+                      data.data[type][type2].currentReport.to.split('T')[0],
+              ].map((week, index) => <Td minW={"max-content"} key={index}>{week}</Td>)}
   
-                    <Th>Total Sales</Th>
+                    <Th minW={"max-content"}>Total Sales</Th>
                     {data.data[type][type2].currentReport.report.map((entry) => (
-                      <Td key={entry.storeName}>{entry.totalSales}</Td>
+                      <Td minW={"max-content"} key={entry.storeName}>{parseFloat(entry.totalSales?.toFixed(2)) || 0}</Td>
                     ))}
                   </Tr>
                   <Tr>
@@ -144,13 +144,13 @@ const SalesReport = () => {
                       [data.data[type][type2].prevReport.week,
                       data.data[type][type2].prevReport.period,
                       data.data[type][type2].prevReport.year,
-                      moment(data.data[type][type2].prevReport.from).format('YYYY-MM-DD'),
-                      moment(data.data[type][type2].prevReport.to).format('YYYY-MM-DD'),
-                                          ].map((week, index) => <Td key={index}>{week}</Td>)}
-                    <Th>Prev Sale</Th>
+                     data.data[type][type2].prevReport.from.split('T')[0],
+                      data.data[type][type2].prevReport.to.split('T')[0],
+                                          ].map((week, index) => <Td  minW={"133px"} key={index}>{week}</Td>)}
+                    <Th minW={"max-content"}>Prev Sale</Th>
   
                     {data.data[type][type2].prevReport.report.map((entry) => (
-                      <Td key={entry.storeName}>{entry.totalSales}</Td>
+                      <Td minW={"max-content"} key={entry.storeName}>{parseFloat(entry.totalSales?.toFixed(2)) || 0}</Td>
                     ))}
                   </Tr>
                   <Tr>
@@ -162,9 +162,9 @@ const SalesReport = () => {
                         '--',
                       ].map((week, index) => <Td key={index}>{week}</Td>)}
   
-                    <Th>Variance($)</Th>
+                    <Th minW={"max-content"}>Variance($)</Th>
                     {data.data[type][type2].variancedata.map((entry) => (
-                      <Td key={entry.storeName}>{entry.totalSalesdiff}</Td>
+                      <Td minW={"max-content"} key={entry.storeName}>{ parseFloat(entry.totalSalesdiff?.toFixed(2)) || 0}</Td>
                     ))}
                   </Tr>
                   <Tr>
@@ -177,7 +177,7 @@ const SalesReport = () => {
                       ].map((week, index) => <Td key={index}>{week}</Td>)}
                     <Th>Variance(%)</Th>
                     {data.data[type][type2].variancedata.map((entry) => (
-                      <Td key={entry.storeName}>{entry.variancePercentage}</Td>
+                      <Td key={entry.storeName}>{ parseFloat(entry.variancePercentage?.toFixed(2)) || 0}</Td>
                     ))}
                   </Tr>
                 </Tbody>

@@ -171,14 +171,14 @@ const routes = [
           component: mclanePercent,
         },
       
-        // {
-        //   name: 'Labour Hours',
-        //   layout: '/admin',
-        //   path: '/labour-hours',
-        //   icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+        {
+          name: 'Labour Hours',
+          layout: '/admin',
+          path: '/labour-hours',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
       
-        //   component: LabourHours,
-        // },
+          component: LabourHours,
+        },
         
       ],
       },
