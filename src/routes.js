@@ -14,28 +14,42 @@ import {
 } from "react-icons/md";
 
 import Messages from 'views/main/messages/index';
-import OrderList from 'views/main/ecommerce/orderList/index';
-import Week from 'views/week/index.jsx';
+// import OrderList from 'views/main/ecommerce/orderList/index';
 
 // Admin Imports
 import MainDashboard from "views/admin/default";
-import NFTMarketplace from "views/admin/marketplace";
-import Profile from "views/admin/profile";
-import DataTables from "views/admin/dataTables";
+// import NFTMarketplace from "views/admin/marketplace";
+// import Profile from "views/admin/profile";
+// import DataTables from "views/admin/dataTables";
 
 // Auth Imports
-import SignInCentered from "views/auth/signIn";
-import SalesReport from "views/weeklycompaion";
-import FlashReport from "views/flashreport";
-import uberEats from "views/uberEats";
-import doordash from "views/weekly-doordash";
-import weeklygrubhub from "views/weeklygrubhub";
-import LabourHours from "views/labour-hours";
-import weeklyMclane from "views/weekly-mclanepurchase";
-import averageTicketSizePY from "views/weekly-averageTicketSizePY";
-import CustomerCount from "views/weekly-customercount";
-import mclanePercent from "views/mclanePercent";
-import employeeProductivity from "views/weekly-employeeProductivity";
+// import SignInCentered from "views/auth/signIn";
+import SalesReport from "views/taco/weekly-compairation/weeklycompaion";
+import FlashReport from "views/taco/flashreport";
+import uberEats from "views/taco/weekly-compairation/uberEats";
+import doordash from "views/taco/weekly-compairation/weekly-doordash";
+import weeklygrubhub from "views/taco/weekly-compairation/weeklygrubhub";
+import LabourHours from "views/taco/weekly-compairation/labour-hours";
+import weeklyMclane from "views/taco/weekly-compairation/weekly-mclanepurchase";
+import averageTicketSizePY from "views/taco/weekly-compairation/weekly-averageTicketSizePY";
+import CustomerCount from "views/taco/weekly-compairation/weekly-customercount";
+import mclanePercent from "views/taco/weekly-compairation/mclanePercent";
+import employeeProductivity from "views/taco/weekly-compairation/weekly-employeeProductivity";
+import Week from 'views/taco/week';
+
+import SalesReport2 from "views/wendy/weekly-compairation/weeklycompaion";
+import FlashReport2 from "views/wendy/flashreport";
+import uberEats2 from "views/wendy/weekly-compairation/uberEats";
+import doordash2 from "views/wendy/weekly-compairation/weekly-doordash";
+import weeklygrubhub2 from "views/wendy/weekly-compairation/weeklygrubhub";
+import LabourHours2 from "views/wendy/weekly-compairation/labour-hours";
+import weeklyMclane2 from "views/wendy/weekly-compairation/weekly-mclanepurchase";
+import averageTicketSizePY2 from "views/wendy/weekly-compairation/weekly-averageTicketSizePY";
+import CustomerCount2 from "views/wendy/weekly-compairation/weekly-customercount";
+import mclanePercent2 from "views/wendy/weekly-compairation/mclanePercent";
+import employeeProductivity2 from "views/wendy/weekly-compairation/weekly-employeeProductivity";
+import Week2 from 'views/wendy/week';
+
 import { GoReport } from "react-icons/go";
 
 const routes = [
@@ -46,42 +60,6 @@ const routes = [
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: MainDashboard,
   },
-  // {
-  //   name: "NFT Marketplace",
-  //   layout: "/admin",
-  //   path: "/nft-marketplace",
-  //   icon: (
-  //     <Icon
-  //       as={MdOutlineShoppingCart}
-  //       width='20px'
-  //       height='20px'
-  //       color='inherit'
-  //     />
-  //   ),
-  //   component: NFTMarketplace,
-  //   secondary: true,
-  // },
-  // {
-  //   name: "Data Tables",
-  //   layout: "/admin",
-  //   icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-  //   path: "/data-tables",
-  //   component: DataTables,
-  // },
-  // {
-  //   name: "Profile",
-  //   layout: "/admin",
-  //   path: "/profile",
-  //   icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-  //   component: Profile,
-  // },
-  // {
-  //   name: "Sign In",
-  //   layout: "/auth",
-  //   path: "/sign-in",
-  //   icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
-  //   component: SignInCentered,
-  // },
   {
     name: 'TaccoBells',
     layout: '/admin',
@@ -193,79 +171,117 @@ const routes = [
     ],
     component: Messages,
   },
-
-
   {
-    name: 'Wendies',
+    name: "wendy's",
     layout: '/admin',
     collapse: true,
-    path: '/messages',
+    path: '/wendy/messages',
     icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
     items:[
       {
         name: 'Weekly Report',
         layout: '/admin',
-        path: '/week-report',
+        path: '/wendy/week-report',
         icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-        component: Week,
+        component: Week2,
       },
       {
-        name: 'weekly comparaition',
+        name: 'weekly comparation',
         layout: '/admin',
        
         icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
         collapse: true,
         component: <></>,
-        path: "/jlj",
+        path: "/wendy/jlj",
     
         items: [ {
           name: 'Weekly uberEats',
           layout: '/admin',
-          path: '/uberEats',
+          path: '/wendy/uber-eats',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-      
-          component: uberEats,
+          component: uberEats2,
         },
         {
           name: 'Weekly grubhub',
           layout: '/admin',
-          path: '/grubhub',
+          path: '/wendy/grubhub',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-      
-          component: weeklygrubhub,
+          component: weeklygrubhub2,
         },
         {
           name: 'Weekly doordash',
           layout: '/admin',
-          path: '/doordash',
+          path: '/wendy/doordash',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
-      
-          component: doordash,
+          component: doordash2,
         },
         {
-          name: 'Weekly Compaion',
+          name: 'Weekly Companion',
           layout: '/admin',
-          path: '/sales',
+          path: '/wendy/sales',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: SalesReport2,
+        },
+        {
+          name: 'Food Purchase',
+          layout: '/admin',
+          path: '/wendy/weekly-food-purchase',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: weeklyMclane2,
+        },
+        {
+          name: 'Customer Count',
+          layout: '/admin',
+          path: '/wendy/weekly-customer-count',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: CustomerCount2,
+        },
+        {
+          name: 'Average Ticket Size',
+          layout: '/admin',
+          path: '/wendy/average-ticket-size',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: averageTicketSizePY2,
+        },
+      
+        {
+          name: 'weekly employee Productivity',
+          layout: '/admin',
+          path: '/wendy/employee-productivity',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: employeeProductivity2,
+        },
+      
+        {
+          name: 'weekly foodPercent',
+          layout: '/admin',
+          path: '/wendy/food-percent',
+          icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
+          component: mclanePercent2,
+        },
+      
+        {
+          name: 'Labour Hours',
+          layout: '/admin',
+          path: '/wendy/labour-hours',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
       
-          component: SalesReport,
-        },],
+          component: LabourHours2,
+        },
+        
+      ],
       },
     
       {
         name: 'Daily Flash Report',
         layout: '/admin',
-        path: '/flash-report',
+        path: '/wendy/flash-report',
         icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
-    
-        component: FlashReport,
+        component: FlashReport2,
       },
     ],
     component: Messages,
   },
-
- 
- 
 ];
 
 export default routes;

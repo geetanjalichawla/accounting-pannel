@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import * as XLSX from 'xlsx';
-import { Box, Button, HStack, Heading, Input, Table, Tbody, Td, Th, Thead, Tr, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, Heading, Input, SimpleGrid, Table, Tbody, Td, Th, Thead, Tr, useColorModeValue } from '@chakra-ui/react';
 
 const SalesReport = () => {
   const [data, setData] = useState(null);
@@ -12,7 +12,7 @@ const SalesReport = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_FRONTEND}/weekly-report/weeklylabourHours?week=${week}&period=${period}&year=${year}`);
+        const response = await axios.get(`${process.env.REACT_APP_FRONTEND}/wendys/weekly-report/weekly-foodPercent?week=${week}&period=${period}&year=${year}`);
         const apiData = response.data;
         setData(apiData);
       } catch (error) {
@@ -50,7 +50,7 @@ const SalesReport = () => {
               report?.currentReport.from?.split('T')[0] ?? '',
               report?.currentReport.to?.split('T')[0] ?? '',
               'Total Sales',
-              ...(report?.currentReport?.report.map((entry) => parseFloat(entry.customerCount?.toFixed(2)) || 0) ?? []),
+              ...(report?.currentReport?.report.map((entry) => parseFloat(entry.foodPercent?.toFixed(2)) || 0) ?? []),
             ],
             [
               report.prevReport.week ?? '',
@@ -59,7 +59,7 @@ const SalesReport = () => {
               report.prevReport.from?.split('T')[0] ?? '',
               report.prevReport.to?.split('T')[0] ?? '',
               'Total Sales',
-              ...(report?.prevReport?.report.map((entry) => parseFloat(entry.customerCount?.toFixed(2)) || 0) ?? []),
+              ...(report?.prevReport?.report.map((entry) => parseFloat(entry.foodPercent?.toFixed(2)) || 0) ?? []),
             ],
             [
               '--',
@@ -85,9 +85,9 @@ const SalesReport = () => {
 
       const ws = XLSX.utils.aoa_to_sheet(sheetData);
 
-      XLSX.utils.book_append_sheet(wb, ws, 'customerCount');
+      XLSX.utils.book_append_sheet(wb, ws, 'foodPercent');
 
-      XLSX.writeFile(wb, 'customerCount.xlsx');
+      XLSX.writeFile(wb, 'foodPercent.xlsx');
     }
   };
   return (
@@ -103,7 +103,7 @@ const SalesReport = () => {
 
       </HStack>
 
-      <Heading size='xl' mb={'2'}>Customer Count</Heading>
+      <Heading size='xl' mb={'2'}>Food Purchase</Heading>
       {data && (
         Object.keys(data?.data)?.map((type) => {
           console.log({ type })
@@ -136,7 +136,7 @@ const SalesReport = () => {
 
                           <Th minW={"max-content"}>Total Sales</Th>
                           {data.data[type][type2].currentReport.report.map((entry) => (
-                            <Td minW={"max-content"} key={entry.storeName}>{parseFloat(entry.customerCount?.toFixed(2)) || 0}</Td>
+                            <Td minW={"max-content"} key={entry.storeName}>{parseFloat(entry.foodPercent?.toFixed(2)) || 0}</Td>
                           ))}
                         </Tr>
                         <Tr>
@@ -150,7 +150,7 @@ const SalesReport = () => {
                           <Th minW={"max-content"}>Prev Sale</Th>
 
                           {data.data[type][type2].prevReport.report.map((entry) => (
-                            <Td minW={"max-content"} key={entry.storeName}>{parseFloat(entry.customerCount?.toFixed(2)) || 0}</Td>
+                            <Td minW={"max-content"} key={entry.storeName}>{parseFloat(entry.foodPercent?.toFixed(2)) || 0}</Td>
                           ))}
                         </Tr>
                         <Tr>
