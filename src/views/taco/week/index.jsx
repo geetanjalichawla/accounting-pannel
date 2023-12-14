@@ -109,61 +109,61 @@ const ExportToExcel = () => {
       };
       const FabiolaTheodore = data.filter((data) => data.manager === "Fabiola Theodore").map((entry) => [
         entry.storeName + ' (' + entry.storeCode  + ')',
-        entry.weeklySalesCY|| '',
-        entry.weeklySalesLY|| '',
-        entry.weeklySalesCY - entry.weeklySalesLY|| '',  // Sales Growth $
+        entry.weeklySalesCY|| 0,
+        entry.weeklySalesLY|| 0,
+        entry.weeklySalesCY - entry.weeklySalesLY|| 0,  // Sales Growth $
         (entry.weeklySalesCY - entry.weeklySalesLY) / entry.weeklySalesLY * 100,  // Sales Growth %
-        entry.weeklyCYTrans|| '',
-        entry.weeklyLYTrans|| '',
-        entry.weeklyCYTrans - entry.weeklyLYTrans|| '',  // Trans Growth #
+        entry.weeklyCYTrans|| 0,
+        entry.weeklyLYTrans|| 0,
+        entry.weeklyCYTrans - entry.weeklyLYTrans|| 0,  // Trans Growth #
         (entry.weeklyCYTrans - entry.weeklyLYTrans) / entry.weeklyLYTrans * 100,  // Trans Growth %
-        entry.weeklyGC|| '',
-        entry.weeklyLYGC|| '',
-        entry.weeklyGC - entry.weeklyLYGC|| '',  // GC Growth $
-        (entry.weeklyGC - entry.weeklyLYGC) / entry.weeklyLYGC * 100|| '',  // GC Growth %
-        entry.ICOSVarPercent|| '',
-        entry.LaborVar|| '',
-        entry.LaborCost|| '',
-        entry.LaborCost / entry.weeklySalesCY * 100|| '',  // Labor %
-        entry.DeletionsAfter|| '',
-        entry.CashOverShort|| '',
-        entry.DrinkOrder|| '',
-        entry.DeliverySale|| '',
-        entry.KioskSale|| '',
-        entry.EmployeeMeal|| '',
-        entry.OTDOYPay|| '',
-        entry.OTHr|| '',
-        entry.ActualFoodCost|| '',
-        entry.ActualFoodCostPercent || '',
+        entry.weeklyGC|| 0,
+        entry.weeklyLYGC|| 0,
+        entry.weeklyGC - entry.weeklyLYGC|| 0,  // GC Growth $
+        (entry.weeklyGC - entry.weeklyLYGC) / entry.weeklyLYGC * 100|| 0,  // GC Growth %
+        entry.ICOSVarPercent|| 0,
+        entry.LaborVar|| 0,
+        entry.LaborCost|| 0,
+        entry.LaborCost / entry.weeklySalesCY * 100|| 0,  // Labor %
+        entry.DeletionsAfter|| 0,
+        entry.CashOverShort|| 0,
+        entry.DrinkOrder|| 0,
+        entry.DeliverySale|| 0,
+        entry.KioskSale|| 0,
+        entry.EmployeeMeal|| 0,
+        entry.OTDOYPay|| 0,
+        entry.OTHr|| 0,
+        entry.ActualFoodCost|| 0,
+        entry.ActualFoodCostPercent || 0,
       ]);
       const HectorCastillo = data.filter((data) => data.manager === "Hector Castillo").map((entry) => [
         entry.storeName + ' (' + entry.storeCode  + ')',
-        entry.weeklySalesCY|| '',
-        entry.weeklySalesLY|| '',
-        entry.weeklySalesCY - entry.weeklySalesLY|| '',  // Sales Growth $
+        entry.weeklySalesCY|| 0,
+        entry.weeklySalesLY|| 0,
+        entry.weeklySalesCY - entry.weeklySalesLY|| 0,  // Sales Growth $
         (entry.weeklySalesCY - entry.weeklySalesLY) / entry.weeklySalesLY * 100,  // Sales Growth %
-        entry.weeklyCYTrans|| '',
-        entry.weeklyLYTrans|| '',
-        entry.weeklyCYTrans - entry.weeklyLYTrans|| '',  // Trans Growth #
+        entry.weeklyCYTrans|| 0,
+        entry.weeklyLYTrans|| 0,
+        entry.weeklyCYTrans - entry.weeklyLYTrans|| 0,  // Trans Growth #
         (entry.weeklyCYTrans - entry.weeklyLYTrans) / entry.weeklyLYTrans * 100,  // Trans Growth %
-        entry.weeklyGC|| '',
-        entry.weeklyLYGC|| '',
-        entry.weeklyGC - entry.weeklyLYGC|| '',  // GC Growth $
-        (entry.weeklyGC - entry.weeklyLYGC) / entry.weeklyLYGC * 100|| '',  // GC Growth %
-        entry.ICOSVarPercent|| '',
-        entry.LaborVar|| '',
-        entry.LaborCost|| '',
-        entry.LaborCost / entry.weeklySalesCY * 100|| '',  // Labor %
-        entry.DeletionsAfter|| '',
-        entry.CashOverShort|| '',
-        entry.DrinkOrder|| '',
-        entry.DeliverySale|| '',
-        entry.KioskSale|| '',
-        entry.EmployeeMeal|| '',
-        entry.OTDOYPay|| '',
-        entry.OTHr|| '',
-        entry.ActualFoodCost|| '',
-        entry.ActualFoodCostPercent || '',
+        entry.weeklyGC|| 0,
+        entry.weeklyLYGC|| 0,
+        entry.weeklyGC - entry.weeklyLYGC|| 0,  // GC Growth $
+        (entry.weeklyGC - entry.weeklyLYGC) / entry.weeklyLYGC * 100|| 0,  // GC Growth %
+        entry.ICOSVarPercent|| 0,
+        entry.LaborVar|| 0,
+        entry.LaborCost|| 0,
+        entry.LaborCost / entry.weeklySalesCY * 100|| 0,  // Labor %
+        entry.DeletionsAfter|| 0,
+        entry.CashOverShort|| 0,
+        entry.DrinkOrder|| 0,
+        entry.DeliverySale|| 0,
+        entry.KioskSale|| 0,
+        entry.EmployeeMeal|| 0,
+        entry.OTDOYPay|| 0,
+        entry.OTHr|| 0,
+        entry.ActualFoodCost|| 0,
+        entry.ActualFoodCostPercent || 0,
          ]);
 
       let columnHeaders = [
@@ -203,7 +203,7 @@ const ExportToExcel = () => {
           if (index !== 0) {
             total[index] = (total[index] || 0) + value;
           }
-          else total[index]  = ''
+          else total[index]  = 0
         });
         return total;
       }, []);
@@ -238,7 +238,7 @@ const ExportToExcel = () => {
       >
         <Thead>
           <Tr>
-          {columnHeaders.map(col=><Th>{col}</Th>)
+          {columnHeaders.map(col=><Th>{col === Infinity ? 0 : (col || 0 ) }</Th>)
  }
           </Tr>
         </Thead>
@@ -267,7 +267,7 @@ const ExportToExcel = () => {
       >
         <Thead>
           <Tr>
-          {columnHeaders.map(col=><Th>{col}</Th>)
+          {columnHeaders.map(col=><Th>{col || 0}</Th>)
  }
           </Tr>
         </Thead>
@@ -303,7 +303,7 @@ const ExportToExcel = () => {
       >
         <Thead>
         <Tr>
-          {columnHeaders.map(col=><Th>{col}</Th>)
+          {columnHeaders.map(col=><Th>{col === Infinity ? 0 : (col || 0 ) }</Th>)
  }
           </Tr>
         </Thead>
