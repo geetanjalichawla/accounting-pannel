@@ -267,7 +267,7 @@ const ExportToExcel = () => {
       >
         <Thead>
           <Tr>
-          {columnHeaders.map(col=><Th>{col || 0}</Th>)
+          {columnHeaders.map(col=><Th>{col === Infinity ? 0 : (col || 0 )}</Th>)
  }
           </Tr>
         </Thead>
