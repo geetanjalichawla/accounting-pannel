@@ -52,8 +52,10 @@ import Week2 from 'views/wendy/week';
 
 import { GoReport } from "react-icons/go";
 import Dashboard from "views/dashboard";
+import SignIn from "views/auth/signIn";
 
 const routes = [
+  
   {
     name: "Main Dashboard",
     layout: "/admin",
