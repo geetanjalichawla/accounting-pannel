@@ -17,7 +17,7 @@ const SalesActualVsPreviousChart = (props) => {
       }));
 
       const res = await axios.get(
-        'https://portal-backend-mhgo.onrender.com/dashboard/sales-actual-vs-sales-previous'
+        `${process.env.REACT_APP_FRONTEND}/dashboard/sales-actual-vs-sales-previous`
       );
 
       console.log('SalesActualVsPreviousChart', res.data);

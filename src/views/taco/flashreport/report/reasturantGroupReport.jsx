@@ -13,13 +13,14 @@ import {
     Input,
     Text
   } from "@chakra-ui/react";
-const RestaurantGroupReport= () => {
+const RestaurantGroupReport= (summary) => {
 //   const cellStyle = {
 //     borderBottom: '1px solid #000',
 //     borderRight: '1px solid #000',
 //     padding: '8px',
 //     textAlign: 'center' , // Explicitly specify textAlign property
 //   };
+console.log(summary,"summary")
     return (
       <div>
         <Text fontSize='3xl'>Yum and Chill Restaurant Group</Text>
@@ -61,14 +62,14 @@ const RestaurantGroupReport= () => {
         {/* Data Rows */}
         <Tr>
           <Td >Yum & Chill</Td>
-          <Td >0</Td>
-          <Td >0</Td>
-          <Td >00</Td>
+          <Td >60007</Td>
+          <Td >34000</Td>
+          <Td >45696</Td>
           <Td >0</Td>
           <Td >0</Td>
           <Td >0</Td>
           <Td>00</Td>
-          <Td>50</Td>
+          <Td>5000</Td>
           <Td>0</Td>
           <Td>0</Td>
         </Tr>

@@ -17,7 +17,7 @@ const SalesActualVsBudgeted = (props) => {
       }));
 
       const res = await axios.get(
-        'https://portal-backend-7zbi.onrender.com/dashboard/sales-actual-vs-sales-budgeted'
+        `${process.env.REACT_APP_FRONTEND}/dashboard/sales-actual-vs-sales-budgeted`
       );
 
       console.log('SalesActualVsBudgeted', res.data);

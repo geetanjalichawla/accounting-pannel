@@ -15,339 +15,8 @@ import {
     Text
   } from "@chakra-ui/react";
 
-const data = [
-    {
-      "_id": 29748,
-      "storeName": "Jersey City",
-      "storeCode": 29748,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 89,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 30685,
-      "storeName": "Milltown",
-      "storeCode": 30685,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 50,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 31281,
-      "storeName": "East Brunswick",
-      "storeCode": 31281,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 31508,
-      "storeName": "Orange",
-      "storeCode": 31508,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 32387,
-      "storeName": "Somerville",
-      "storeCode": 32387,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 32662,
-      "storeName": "Irvington",
-      "storeCode": 32662,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 34804,
-      "storeName": "Bayonne",
-      "storeCode": 34804,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 34806,
-      "storeName": "South Brunswick",
-      "storeCode": 34806,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 38857,
-      "storeName": "Montgomery",
-      "storeCode": 38857,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 40167,
-      "storeName": "East Orange",
-      "storeCode": 40167,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 40482,
-      "storeName": "North brunswick",
-      "storeCode": 40482,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 89,
-      "dailySalesLY": 50,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 70,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    }
-  ]
-const ManagerSales = ({ manager, sendArrayToParent  }) => {
+
+const ManagerSales = ({ manager, sendArrayToParent,data  }) => {
 
   const calculateTotal = (column, filteredData) => {
     return filteredData.reduce((total, row) => total + row[column], 0);
@@ -362,40 +31,54 @@ const ManagerSales = ({ manager, sendArrayToParent  }) => {
     return value / base;
   };
   const filteredData = data.filter((item) => item.manager === manager);
-  const managers = ["Fabiola Theodore", "Hector Castillo"];
-const aggregatedData = [];
 
-managers.forEach((manager) => {
-  // Filter data for the current manager
-  const filteredData = data.filter((item) => item.manager === manager);
-
-  // Calculate totals for each column
-  const totals = {
-    manager,
-    dailySalesCYTotal: calculateTotal('dailySalesCY', filteredData),
-    dailySalesLYTotal: calculateTotal('dailySalesLY', filteredData),
-    WTDSalesCYTotal: calculateTotal('WTDSalesCY', filteredData),
-    WTDSalesLYTotal: calculateTotal('WTDSalesLY', filteredData),
-    // Add other columns as needed
-  };
-
-  // Calculate percentages if needed
-  totals.dailySalesPercent = calculatePercentage(totals.dailySalesLYTotal, totals.dailySalesCYTotal);
-
-  // Push the totals to the aggregatedData array
-  aggregatedData.push(totals);
-});
-
-// Now, aggregatedData will contain the aggregated totals for each manager
-//console.log(aggregatedData);
 useEffect(() => {
+  // Call your data processing functions
+  const managers = ["Fabiola Theodore", "Hector Castillo"];
+  const aggregatedData = [];
+
+  managers.forEach((manager) => {
+    // Filter data for the current manager
+    if(data.length > 0 ){
+    const filteredData = data.filter((item) => item.manager === manager);
+
+    // Calculate totals for each column
+    const totals = {
+      manager,
+      dailySalesCYTotal: calculateTotal('dailySalesCY', filteredData),
+      dailySalesLYTotal: calculateTotal('dailySalesLY', filteredData),
+      WTDSalesCYTotal: calculateTotal('WTDSalesCY', filteredData),
+      WTDSalesLYTotal: calculateTotal('WTDSalesLY', filteredData),
+      PTDSalesCYTotal:calculateTotal('PTDSalesCY', filteredData),
+      PTDSalesLYTotal:calculateTotal('PTDSalesLY', filteredData),
+      YTDSalesCYTotal:calculateTotal('YTDSalesCY', filteredData),
+      YTDSalesLYTotal:calculateTotal('YTDSalesLY', filteredData),
+      R13SalesCYTotal:calculateTotal('R13SalesCY', filteredData),
+      R13SalesLYTotal:calculateTotal('R13SalesLY', filteredData),
+    };
+
+    // Calculate percentages if needed
+    totals.dailySalesPercent = calculatePercentage(totals.dailySalesLYTotal, totals.dailySalesCYTotal);
+
+    // Push the totals to the aggregatedData array
+    aggregatedData.push(totals);
+  }
+});
   sendArrayToParent(aggregatedData);
-}, []);
+}, [data]);
   return (
     <div>
-       <Text fontSize='3xl'>{manager}</Text>
+       <Text fontSize='2xl'>{manager}</Text>
 
-      <Table mt={30}>
+    
+       <Box w={'full'} overflow={'auto'}> 
+<Table
+        variant="simple"
+        bg={"white"}
+        rounded={"lg"}
+        overflow={"scroll"}
+        w={"full"}
+      >
       <Tbody>
         <Tr>
           <Td rowSpan={2} >Product</Td>
@@ -496,8 +179,17 @@ useEffect(() => {
 </Tr>
       </Tbody>
     </Table>
+    </Box>
      {/* Table two */}
-     <Table mt={30}>
+    
+     <Box w={'full'} overflow={'auto'}> 
+<Table
+        variant="simple"
+        bg={"white"}
+        rounded={"lg"}
+        overflow={"scroll"}
+        w={"full"}
+      >
         <Tbody>
           <Tr>
             <Td rowSpan={2} >
@@ -625,6 +317,7 @@ useEffect(() => {
   </Tr>
         </Tbody>
       </Table>
+      </Box>
     </div>
   );
 };

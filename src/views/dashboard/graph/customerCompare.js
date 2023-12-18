@@ -16,7 +16,7 @@ const CustomerComparisonChart = (props) => {
         status: 'pending',
       }));
       const res = await axios.get(
-        'https://portal-backend-7zbi.onrender.com/dashboard/customer-comparison'
+        `${process.env.REACT_APP_FRONTEND}/dashboard/customer-comparison`
       );
 
       setChartState((prev) => ({

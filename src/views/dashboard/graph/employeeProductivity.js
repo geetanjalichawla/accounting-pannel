@@ -16,7 +16,7 @@ const EmployeeProductivity = (props) => {
         status: 'pending',
       }));
       const res = await axios.get(
-        'https://portal-backend-7zbi.onrender.com/dashboard/employee-productivity'
+        `${process.env.REACT_APP_FRONTEND}/dashboard/employee-productivity`
       );
 
       setChartState((prev) => ({

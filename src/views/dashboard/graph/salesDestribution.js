@@ -16,7 +16,7 @@ const SalesDistributionChart = (props) => {
         status: 'pending',
       }));
       const res = await axios.get(
-        'https://portal-backend-7zbi.onrender.com/dashboard/sales-distribution'
+        `${process.env.REACT_APP_FRONTEND}/dashboard/sales-distribution`
       );
 
       console.log('SalesDistributionChart', res.data);
