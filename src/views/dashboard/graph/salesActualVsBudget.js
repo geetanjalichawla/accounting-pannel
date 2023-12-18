@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
-const SalesActualVsBudgeted = (props) => {
+const SalesActualVsBudgeted = ({ week, period, year }) => {
   const [chartState, setChartState] = useState({
     data: [],
     status: null,
@@ -17,7 +17,7 @@ const SalesActualVsBudgeted = (props) => {
       }));
 
       const res = await axios.get(
-        `${process.env.REACT_APP_FRONTEND}/dashboard/sales-actual-vs-sales-budgeted`
+        `${process.env.REACT_APP_FRONTEND}/dashboard/sales-actual-vs-sales-budgeted?week=${week}&period=${period}&year=${year}`
       );
 
       console.log('SalesActualVsBudgeted', res.data);
@@ -38,7 +38,7 @@ const SalesActualVsBudgeted = (props) => {
 
   useEffect(() => {
     fetchChartData();
-  }, []);
+  }, [week, period, year]);
 
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }} w="100%">

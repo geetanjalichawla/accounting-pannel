@@ -2,8 +2,7 @@ import { Box, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-
-const SalesActualVsPreviousChart = (props) => {
+const SalesActualVsPreviousChart = ({ week, period, year }) => {
   const [chartState, setChartState] = useState({
     data: [],
     status: null,
@@ -17,10 +16,9 @@ const SalesActualVsPreviousChart = (props) => {
       }));
 
       const res = await axios.get(
-        `${process.env.REACT_APP_FRONTEND}/dashboard/sales-actual-vs-sales-previous`
+        `${process.env.REACT_APP_FRONTEND}/dashboard/sales-actual-vs-sales-previous?week=${week}&period=${period}&year=${year}`,
+       
       );
-
-      console.log('SalesActualVsPreviousChart', res.data);
 
       setChartState((prev) => ({
         ...prev,
@@ -38,7 +36,7 @@ const SalesActualVsPreviousChart = (props) => {
 
   useEffect(() => {
     fetchChartData();
-  }, []);
+  }, [week, period, year]); 
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }} w="100%">

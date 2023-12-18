@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
-const CustomerComparisonChart = (props) => {
+const CustomerComparisonChart = ({ week, period, year }) => {
   const [chartState, setChartState] = useState({
     data: [],
     status: null,
@@ -16,7 +16,7 @@ const CustomerComparisonChart = (props) => {
         status: 'pending',
       }));
       const res = await axios.get(
-        `${process.env.REACT_APP_FRONTEND}/dashboard/customer-comparison`
+        `${process.env.REACT_APP_FRONTEND}/dashboard/customer-comparison?week=${week}&period=${period}&year=${year}`
       );
 
       setChartState((prev) => ({
@@ -35,7 +35,7 @@ const CustomerComparisonChart = (props) => {
 
   useEffect(() => {
     fetchChartData();
-  }, []);
+  }, [week, period, year]);
 
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden">

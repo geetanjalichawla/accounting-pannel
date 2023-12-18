@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
-const SalesWiseChart = (props) => {
+const SalesWiseChart = ({ week, period, year }) => {
   const [chartState, setChartState] = useState({
     data: [],
     status: null,
@@ -16,7 +16,7 @@ const SalesWiseChart = (props) => {
         status: 'pending',
       }));
       const res = await axios.get(
-        'https://portal-backend-7zbi.onrender.com/dashboard/store-wise-sales'
+        `${process.env.REACT_APP_FRONTEND}/dashboard/store-wise-sales?week=${week}&period=${period}&year=${year}`
       );
 
       setChartState((prev) => ({
@@ -35,7 +35,7 @@ const SalesWiseChart = (props) => {
 
   useEffect(() => {
     fetchChartData();
-  }, []);
+  }, [week, period, year]);
 
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
