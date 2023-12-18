@@ -13,20 +13,36 @@ export default function Dashboard() {
 
   return (
 
-   <div>
-       <Grid templateColumns='repeat(2, 1fr)' gap={2}>
-  <GridItem w='100%' h='10' bg='blue.500'><SalesActualVsPreviousChart /></GridItem>
-  {/* <GridItem w='100%' h='10' bg='blue.500'><SalesActualVsBudgeted /></GridItem> */}
-       </Grid>
-     
-     {/* <Grid templateColumns='repeat(2, 1fr)' gap={4}>
-  <GridItem w='100%' h='10' bg='blue.500'><SalesDistributionChart /></GridItem>
-  <GridItem w='100%' h='10' bg='blue.500'><SalesWiseChart /></GridItem>
-       </Grid>
-       <Grid templateColumns='repeat(2, 1fr)' gap={4}>
-  <GridItem w='100%' h='10' bg='blue.500'><CustomerComparisonChart /></GridItem>
-  <GridItem w='100%' h='10' bg='blue.500'><EmployeeProductivity /></GridItem>
-       </Grid> */}
-   </div> 
+     <Box>
+     {/* First row */}
+     <Grid templateColumns='repeat(2, 1fr)' gap={4}>
+       <GridItem colSpan={1} >
+         <SalesActualVsPreviousChart />
+       </GridItem>
+       <GridItem colSpan={1} >
+         <SalesActualVsBudgeted />
+       </GridItem>
+     </Grid>
+
+     {/* Second row */}
+     <Grid templateColumns='repeat(2, 1fr)' gap={4}>
+       <GridItem colSpan={1} >
+         <SalesDistributionChart />
+       </GridItem>
+       <GridItem colSpan={1} >
+         <SalesWiseChart />
+       </GridItem>
+     </Grid>
+
+     {/* Third row */}
+     <Grid templateColumns='repeat(2, 1fr)' gap={4}>
+       <GridItem colSpan={1} >
+         <CustomerComparisonChart />
+       </GridItem>
+       <GridItem colSpan={1} >
+         <EmployeeProductivity />
+       </GridItem>
+     </Grid>
+   </Box>
   );
 }

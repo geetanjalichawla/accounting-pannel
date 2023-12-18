@@ -41,7 +41,7 @@ const SalesActualVsBudgeted = (props) => {
   }, []);
 
   return (
-    <Box pt={{ base: '130px', md: '80px', xl: '80px' }} w="120%">
+    <Box pt={{ base: '130px', md: '80px', xl: '80px' }} w="100%">
       {chartState.status === 'pending' ? (
         <Text>Loading ...</Text>
       ) : (
