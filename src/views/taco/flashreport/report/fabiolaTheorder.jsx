@@ -56,36 +56,36 @@ const FabiolaTheodore = () => {
           {filteredData.map((row) => (
             <Tr key={row._id}>
               <Td >{row.storeName}</Td>
-              <Td >{row.dailySalesCY}</Td>
-              <Td >{row.dailySalesLY}</Td>
-              <Td >{row.dailySalesCY - row.dailySalesLY}</Td>
+              <Td >{row.dailySalesCY.toFixed(2)}</Td>
+              <Td >{row.dailySalesLY.toFixed(2)}</Td>
+              <Td >{(row.dailySalesCY - row.dailySalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.dailySalesCY - row.dailySalesLY, row.dailySalesCY).toFixed(2)}%
               </Td>
-              <Td >{row.WTDSalesCY}</Td>
-              <Td >{row.WTDSalesLY}</Td>
-              <Td >{row.WTDSalesCY - row.WTDSalesLY}</Td>
+              <Td >{row.WTDSalesCY.toFixed(2)}</Td>
+              <Td >{row.WTDSalesLY.toFixed(2)}</Td>
+              <Td >{(row.WTDSalesCY - row.WTDSalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.WTDSalesCY - row.WTDSalesLY, row.WTDSalesCY).toFixed(2)}%
               </Td>
               {/* PTD Sales Data */}
-              <Td >{row.PTDSalesCY}</Td>
-              <Td >{row.PTDSalesLY}</Td>
-              <Td >{row.PTDSalesCY - row.PTDSalesLY}</Td>
+              <Td >{row.PTDSalesCY.toFixed(2)}</Td>
+              <Td >{row.PTDSalesLY.toFixed(2)}</Td>
+              <Td >{(row.PTDSalesCY - row.PTDSalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.PTDSalesCY - row.PTDSalesLY, row.PTDSalesCY).toFixed(2)}%
               </Td>
               {/* YTD Sales Data */}
-              <Td >{row.YTDSalesCY}</Td>
-              <Td >{row.YTDSalesLY}</Td>
-              <Td >{row.YTDSalesCY - row.YTDSalesLY}</Td>
+              <Td >{row.YTDSalesCY.toFixed(2)}</Td>
+              <Td >{row.YTDSalesLY.toFixed(2)}</Td>
+              <Td >{(row.YTDSalesCY - row.YTDSalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.YTDSalesCY - row.YTDSalesLY, row.YTDSalesCY).toFixed(2)}%
               </Td>
               {/* R13 Sales Data */}
-              <Td >{row.R13SalesCY}</Td>
-              <Td >{row.R13SalesLY}</Td>
-              <Td >{row.R13SalesCY - row.R13SalesLY}</Td>
+              <Td >{row.R13SalesCY.toFixed(2)}</Td>
+              <Td >{row.R13SalesLY.toFixed(2)}</Td>
+              <Td >{(row.R13SalesCY - row.R13SalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.R13SalesCY - row.R13SalesLY, row.R13SalesCY).toFixed(2)}%
               </Td>
@@ -144,12 +144,12 @@ const FabiolaTheodore = () => {
             <Tr key={row._id}>
               <Td >{row.storeName}</Td>
               {/* Net Sales Data */}
-              <Td >{row.dailySalesCY}</Td>
+              <Td >{row.dailySalesCY.toFixed(2)}</Td>
              
               {/* Transaction Count Data */}
-              <Td >{row.dailyTransCountCY}</Td>
-              <Td >{row.dailyTransCountLY}</Td>
-              <Td >{row.dailyTransCountCY - row.dailyTransCountLY}</Td>
+              <Td >{row.dailyTransCountCY.toFixed(2)}</Td>
+              <Td >{row.dailyTransCountLY.toFixed(2)}</Td>
+              <Td >{(row.dailyTransCountCY - row.dailyTransCountLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.dailyTransCountCY - row.dailyTransCountLY, row.dailyTransCountCY).toFixed(2)}%
               </Td>
@@ -170,17 +170,17 @@ const FabiolaTheodore = () => {
              
               {/* Cash Data */}
               {/* ... add Cash data columns similarly */}
-              <Td >{row.CashOverShort}</Td>
+              <Td >{row.CashOverShort.toFixed(2)}</Td>
               {/* Del After Data */}
               {/* ... add Del After data columns similarly */}
              
-              <Td >{row.DeletionsAfter}</Td>
+              <Td >{row.DeletionsAfter.toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.DeletionsAfter , row.dailySalesCY).toFixed(2)}%
               </Td>
               {/* ICOS Data */}
-              <Td >{row.ICOSVarPercent}</Td>
-              <Td >{row.WTDICOSVarPercent}</Td>
+              <Td >{row.ICOSVarPercent.toFixed(2)}</Td>
+              <Td >{row.WTDICOSVarPercent.toFixed(2)}</Td>
             </Tr>
           ))}
         </Tbody>
