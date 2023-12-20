@@ -311,7 +311,7 @@ const ExportToExcel = () => {
           <Thead>
             <Tr>
               {columnHeaders.map((col,index) => (
-                  index === 0 ? <Td>{col}</Td>:<Td>{parseFloat(col === Infinity ? 0 : col || 0).toFixed(2)}</Td>
+                  index === 0 ? <Td>{col}</Td>:<Td>{col}</Td>
                   ))}
             </Tr>
           </Thead>
