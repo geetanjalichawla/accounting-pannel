@@ -1,28 +1,8 @@
-/* eslint-disable */
-/*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || | 
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
-                                                                                                                                                                                                                                                                                                                                       
-=========================================================
-* Horizon UI - v1.1.0
-=========================================================
 
-* Product Page: https://www.horizon-ui.com/
-* Copyright 2023 Horizon UI (https://www.horizon-ui.com/)
-
-* Designed and Coded by Simmmple
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useHistory } from 'react-router-dom'; 
 // Chakra imports
 import {
   Box,
@@ -47,6 +27,8 @@ import illustration from "assets/img/auth/auth.png";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
+import { useEffect,useState } from "react";
+
 
 function SignIn() {
   // Chakra color mode
@@ -55,20 +37,55 @@ function SignIn() {
   const textColorDetails = useColorModeValue("navy.700", "secondaryGray.600");
   const textColorBrand = useColorModeValue("brand.500", "white");
   const brandStars = useColorModeValue("brand.500", "brand.400");
-  const googleBg = useColorModeValue("secondaryGray.300", "whiteAlpha.200");
-  const googleText = useColorModeValue("navy.700", "white");
-  const googleHover = useColorModeValue(
-    { bg: "gray.200" },
-    { bg: "whiteAlpha.300" }
-  );
+  // const googleBg = useColorModeValue("secondaryGray.300", "whiteAlpha.200");
+  // const googleText = useColorModeValue("navy.700", "white");
+  // const googleHover = useColorModeValue(
+  //   { bg: "gray.200" },
+  //   { bg: "whiteAlpha.300" }
+  // );
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const history = useHistory();
   const googleActive = useColorModeValue(
     { bg: "secondaryGray.300" },
     { bg: "whiteAlpha.200" }
   );
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+  const handleSignIn = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_FRONTEND}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
+  
+    if (response.ok) {
+        // Extract the access token from the response
+        const accessToken = response?.data?.data?.accessToken;
+  
+        // Store the access token in localStorage
+        localStorage.setItem('accessToken', accessToken);
+  
+        // Redirect to the dashboard
+        history.push('/admin/default'); // Adjust the path accordingly
+      } else {
+        // Handle the case where the server returns an error
+        console.error('Error signing in:');
+      }
+     
+    } catch (error) {
+      // Handle errors
+      console.error('Error signing in:', error.message);
+    }
+  };
   return (
-    <DefaultAuth illustrationBackground={illustration} image={illustration}>
+    <DefaultAuth>
       <Flex
         maxW={{ base: "100%", md: "max-content" }}
         w='100%'
@@ -104,7 +121,7 @@ function SignIn() {
           mx={{ base: "auto", lg: "unset" }}
           me='auto'
           mb={{ base: "20px", md: "auto" }}>
-          <Button
+          {/* <Button
             fontSize='sm'
             me='0px'
             mb='26px'
@@ -119,14 +136,14 @@ function SignIn() {
             _focus={googleActive}>
             <Icon as={FcGoogle} w='20px' h='20px' me='10px' />
             Sign in with Google
-          </Button>
-          <Flex align='center' mb='25px'>
+          </Button> */}
+          {/* <Flex align='center' mb='25px'>
             <HSeparator />
             <Text color='gray.400' mx='14px'>
               or
             </Text>
             <HSeparator />
-          </Flex>
+          </Flex> */}
           <FormControl>
             <FormLabel
               display='flex'
@@ -138,16 +155,18 @@ function SignIn() {
               Email<Text color={brandStars}>*</Text>
             </FormLabel>
             <Input
-              isRequired={true}
-              variant='auth'
-              fontSize='sm'
-              ms={{ base: "0px", md: "0px" }}
-              type='email'
-              placeholder='mail@simmmple.com'
-              mb='24px'
-              fontWeight='500'
-              size='lg'
-            />
+        isRequired={true}
+        variant='auth'
+        fontSize='sm'
+        ms={{ base: "0px", md: "0px" }}
+        type='email'
+        placeholder='mail@simmmple.com'
+        mb='24px'
+        fontWeight='500'
+        size='lg'
+        value={email}
+        onChange={(e) => setEmail(e.target.value)} // Update email state on input change
+      />
             <FormLabel
               ms='4px'
               fontSize='sm'
@@ -157,15 +176,17 @@ function SignIn() {
               Password<Text color={brandStars}>*</Text>
             </FormLabel>
             <InputGroup size='md'>
-              <Input
-                isRequired={true}
-                fontSize='sm'
-                placeholder='Min. 8 characters'
-                mb='24px'
-                size='lg'
-                type={show ? "text" : "password"}
-                variant='auth'
-              />
+            <Input
+          isRequired={true}
+          fontSize='sm'
+          placeholder='Min. 8 characters'
+          mb='24px'
+          size='lg'
+          type={show ? "text" : "password"}
+          variant='auth'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)} // Update password state on input change
+        />
               <InputRightElement display='flex' alignItems='center' mt='4px'>
                 <Icon
                   color={textColorSecondary}
@@ -177,19 +198,19 @@ function SignIn() {
             </InputGroup>
             <Flex justifyContent='space-between' align='center' mb='24px'>
               <FormControl display='flex' alignItems='center'>
-                <Checkbox
+                {/* <Checkbox
                   id='remember-login'
                   colorScheme='brandScheme'
                   me='10px'
-                />
-                <FormLabel
+                /> */}
+                {/* <FormLabel
                   htmlFor='remember-login'
                   mb='0'
                   fontWeight='normal'
                   color={textColor}
                   fontSize='sm'>
                   Keep me logged in
-                </FormLabel>
+                </FormLabel> */}
               </FormControl>
               <NavLink to='/auth/forgot-password'>
                 <Text
@@ -202,6 +223,7 @@ function SignIn() {
               </NavLink>
             </Flex>
             <Button
+             onClick={handleSignIn}
               fontSize='sm'
               variant='brand'
               fontWeight='500'
@@ -211,7 +233,15 @@ function SignIn() {
               Sign In
             </Button>
           </FormControl>
-          <Flex
+        
+        </Flex>
+      </Flex>
+    </DefaultAuth>
+  );
+}
+
+export default SignIn;
+  {/* <Flex
             flexDirection='column'
             justifyContent='center'
             alignItems='start'
@@ -229,11 +259,4 @@ function SignIn() {
                 </Text>
               </NavLink>
             </Text>
-          </Flex>
-        </Flex>
-      </Flex>
-    </DefaultAuth>
-  );
-}
-
-export default SignIn;
+          </Flex> */}

@@ -51,14 +51,17 @@ import employeeProductivity2 from "views/wendy/weekly-compairation/weekly-employ
 import Week2 from 'views/wendy/week';
 
 import { GoReport } from "react-icons/go";
+import Dashboard from "views/dashboard";
+import SignIn from "views/auth/signIn";
 
 const routes = [
+  
   {
     name: "Main Dashboard",
     layout: "/admin",
     path: "/default",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    component: MainDashboard,
+    component: Dashboard,
   },
   {
     name: 'Taco Bell',

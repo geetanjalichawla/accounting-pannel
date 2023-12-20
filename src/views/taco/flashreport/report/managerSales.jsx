@@ -15,339 +15,8 @@ import {
     Text
   } from "@chakra-ui/react";
 
-const data = [
-    {
-      "_id": 29748,
-      "storeName": "Jersey City",
-      "storeCode": 29748,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 89,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 30685,
-      "storeName": "Milltown",
-      "storeCode": 30685,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 50,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 31281,
-      "storeName": "East Brunswick",
-      "storeCode": 31281,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 31508,
-      "storeName": "Orange",
-      "storeCode": 31508,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 32387,
-      "storeName": "Somerville",
-      "storeCode": 32387,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 32662,
-      "storeName": "Irvington",
-      "storeCode": 32662,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 34804,
-      "storeName": "Bayonne",
-      "storeCode": 34804,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 34806,
-      "storeName": "South Brunswick",
-      "storeCode": 34806,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 38857,
-      "storeName": "Montgomery",
-      "storeCode": 38857,
-      "manager": "Fabiola Theodore",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 40167,
-      "storeName": "East Orange",
-      "storeCode": 40167,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 0,
-      "dailySalesLY": 0,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 0,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    },
-    {
-      "_id": 40482,
-      "storeName": "North brunswick",
-      "storeCode": 40482,
-      "manager": "Hector Castillo",
-      "dailySalesCY": 89,
-      "dailySalesLY": 50,
-      "WTDSalesCY": 0,
-      "WTDSalesLY": 0,
-      "PTDSalesCY": 0,
-      "PTDSalesLY": 0,
-      "YTDSalesCY": 0,
-      "YTDSalesLY": 0,
-      "R13SalesCY": 0,
-      "R13SalesLY": 70,
-      "dailyTransCountCY": 0,
-      "dailyTransCountLY": 0,
-      "WTDTransCountCY": 0,
-      "WTDTransCountLY": 0,
-      "PTDTransCountCY": 0,
-      "PTDTransCountLY": 0,
-      "YTDTransCountCY": 0,
-      "YTDTransCountLY": 0,
-      "R13TransCountCY": 0,
-      "R13TransCountLY": 0,
-      "CashOverShort": 0,
-      "DeletionsAfter": 0,
-      "ICOSVarPercent": 0,
-      "WTDICOSVarPercent": 0
-    }
-  ]
-const ManagerSales = ({ manager, sendArrayToParent  }) => {
+
+const ManagerSales = ({ manager, sendArrayToParent,data  }) => {
 
   const calculateTotal = (column, filteredData) => {
     return filteredData.reduce((total, row) => total + row[column], 0);
@@ -362,40 +31,54 @@ const ManagerSales = ({ manager, sendArrayToParent  }) => {
     return value / base;
   };
   const filteredData = data.filter((item) => item.manager === manager);
-  const managers = ["Fabiola Theodore", "Hector Castillo"];
-const aggregatedData = [];
 
-managers.forEach((manager) => {
-  // Filter data for the current manager
-  const filteredData = data.filter((item) => item.manager === manager);
-
-  // Calculate totals for each column
-  const totals = {
-    manager,
-    dailySalesCYTotal: calculateTotal('dailySalesCY', filteredData),
-    dailySalesLYTotal: calculateTotal('dailySalesLY', filteredData),
-    WTDSalesCYTotal: calculateTotal('WTDSalesCY', filteredData),
-    WTDSalesLYTotal: calculateTotal('WTDSalesLY', filteredData),
-    // Add other columns as needed
-  };
-
-  // Calculate percentages if needed
-  totals.dailySalesPercent = calculatePercentage(totals.dailySalesLYTotal, totals.dailySalesCYTotal);
-
-  // Push the totals to the aggregatedData array
-  aggregatedData.push(totals);
-});
-
-// Now, aggregatedData will contain the aggregated totals for each manager
-//console.log(aggregatedData);
 useEffect(() => {
+  // Call your data processing functions
+  const managers = ["Fabiola Theodore", "Hector Castillo"];
+  const aggregatedData = [];
+
+  managers.forEach((manager) => {
+    // Filter data for the current manager
+    if(data.length > 0 ){
+    const filteredData = data.filter((item) => item.manager === manager);
+
+    // Calculate totals for each column
+    const totals = {
+      manager,
+      dailySalesCYTotal: calculateTotal('dailySalesCY', filteredData),
+      dailySalesLYTotal: calculateTotal('dailySalesLY', filteredData),
+      WTDSalesCYTotal: calculateTotal('WTDSalesCY', filteredData),
+      WTDSalesLYTotal: calculateTotal('WTDSalesLY', filteredData),
+      PTDSalesCYTotal:calculateTotal('PTDSalesCY', filteredData),
+      PTDSalesLYTotal:calculateTotal('PTDSalesLY', filteredData),
+      YTDSalesCYTotal:calculateTotal('YTDSalesCY', filteredData),
+      YTDSalesLYTotal:calculateTotal('YTDSalesLY', filteredData),
+      R13SalesCYTotal:calculateTotal('R13SalesCY', filteredData),
+      R13SalesLYTotal:calculateTotal('R13SalesLY', filteredData),
+    };
+
+    // Calculate percentages if needed
+    totals.dailySalesPercent = calculatePercentage(totals.dailySalesLYTotal, totals.dailySalesCYTotal);
+
+    // Push the totals to the aggregatedData array
+    aggregatedData.push(totals);
+  }
+});
   sendArrayToParent(aggregatedData);
-}, []);
+}, [data]);
   return (
     <div>
-       <Text fontSize='3xl'>{manager}</Text>
+       <Text fontSize='2xl'>{manager}</Text>
 
-      <Table mt={30}>
+    
+       <Box w={'full'} overflow={'auto'}> 
+<Table
+        variant="simple"
+        bg={"white"}
+        rounded={"lg"}
+        overflow={"scroll"}
+        w={"full"}
+      >
       <Tbody>
         <Tr>
           <Td rowSpan={2} >Product</Td>
@@ -421,36 +104,36 @@ useEffect(() => {
           {filteredData.map((row) => (
             <Tr key={row._id}>
               <Td >{row.storeName}</Td>
-              <Td >{row.dailySalesCY}</Td>
-              <Td >{row.dailySalesLY}</Td>
-              <Td >{row.dailySalesCY - row.dailySalesLY}</Td>
+              <Td >{row.dailySalesCY.toFixed(2)}</Td>
+              <Td >{row.dailySalesLY.toFixed(2)}</Td>
+              <Td >{(row.dailySalesCY - row.dailySalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.dailySalesCY - row.dailySalesLY, row.dailySalesCY).toFixed(2)}%
               </Td>
-              <Td >{row.WTDSalesCY}</Td>
-              <Td >{row.WTDSalesLY}</Td>
-              <Td >{row.WTDSalesCY - row.WTDSalesLY}</Td>
+              <Td >{row.WTDSalesCY.toFixed(2)}</Td>
+              <Td >{row.WTDSalesLY.toFixed(2)}</Td>
+              <Td >{(row.WTDSalesCY - row.WTDSalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.WTDSalesCY - row.WTDSalesLY, row.WTDSalesCY).toFixed(2)}%
               </Td>
               {/* PTD Sales Data */}
-              <Td >{row.PTDSalesCY}</Td>
-              <Td >{row.PTDSalesLY}</Td>
-              <Td >{row.PTDSalesCY - row.PTDSalesLY}</Td>
+              <Td >{row.PTDSalesCY.toFixed(2)}</Td>
+              <Td >{row.PTDSalesLY.toFixed(2)}</Td>
+              <Td >{(row.PTDSalesCY - row.PTDSalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.PTDSalesCY - row.PTDSalesLY, row.PTDSalesCY).toFixed(2)}%
               </Td>
               {/* YTD Sales Data */}
-              <Td >{row.YTDSalesCY}</Td>
-              <Td >{row.YTDSalesLY}</Td>
-              <Td >{row.YTDSalesCY - row.YTDSalesLY}</Td>
+              <Td >{row.YTDSalesCY.toFixed(2)}</Td>
+              <Td >{row.YTDSalesLY.toFixed(2)}</Td>
+              <Td >{(row.YTDSalesCY - row.YTDSalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.YTDSalesCY - row.YTDSalesLY, row.YTDSalesCY).toFixed(2)}%
               </Td>
               {/* R13 Sales Data */}
-              <Td >{row.R13SalesCY}</Td>
-              <Td >{row.R13SalesLY}</Td>
-              <Td >{row.R13SalesCY - row.R13SalesLY}</Td>
+              <Td >{row.R13SalesCY.toFixed(2)}</Td>
+              <Td >{row.R13SalesLY.toFixed(2)}</Td>
+              <Td >{(row.R13SalesCY - row.R13SalesLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.R13SalesCY - row.R13SalesLY, row.R13SalesCY).toFixed(2)}%
               </Td>
@@ -458,46 +141,55 @@ useEffect(() => {
           ))}
            <Tr>
            <Td >Total</Td>
-           <Td >{calculateTotal('dailySalesCY',filteredData)}</Td>
-            <Td >{calculateTotal('dailySalesLY',filteredData)}</Td>
-            <Td >{calculateTotal('dailySalesCY',filteredData) - calculateTotal('dailySalesLY',filteredData)}</Td>
+           <Td >{calculateTotal('dailySalesCY',filteredData).toFixed(2)}</Td>
+            <Td >{calculateTotal('dailySalesLY',filteredData).toFixed(2)}</Td>
+            <Td >{(calculateTotal('dailySalesCY',filteredData) - calculateTotal('dailySalesLY',filteredData)).toFixed(2)}</Td>
             <Td >
               {calculatePercentage(calculateTotal('dailySalesCY',filteredData) - calculateTotal('dailySalesLY',filteredData), calculateTotal('dailySalesCY',filteredData)).toFixed(2)}%
             </Td>
-            <Td >{calculateTotal('WTDSalesCY',filteredData)}</Td>
-  <Td >{calculateTotal('WTDSalesLY',filteredData)}</Td>
-  <Td >{calculateTotal('WTDSalesCY',filteredData) - calculateTotal('WTDSalesLY',filteredData)}</Td>
+            <Td >{calculateTotal('WTDSalesCY',filteredData).toFixed(2)}</Td>
+  <Td >{calculateTotal('WTDSalesLY',filteredData).toFixed(2)}</Td>
+  <Td >{(calculateTotal('WTDSalesCY',filteredData) - calculateTotal('WTDSalesLY',filteredData)).toFixed(2)}</Td>
   <Td >
     {calculatePercentage(calculateTotal('WTDSalesCY',filteredData) - calculateTotal('WTDSalesLY',filteredData), calculateTotal('WTDSalesCY',filteredData)).toFixed(2)}%
   </Td>
             {/* Add other columns as needed */}
-            <Td >{calculateTotal('PTDSalesCY',filteredData)}</Td>
-  <Td >{calculateTotal('PTDSalesLY',filteredData)}</Td>
-  <Td >{calculateTotal('PTDSalesCY',filteredData) - calculateTotal('PTDSalesLY',filteredData)}</Td>
+            <Td >{calculateTotal('PTDSalesCY',filteredData).toFixed(2)}</Td>
+  <Td >{calculateTotal('PTDSalesLY',filteredData).toFixed(2)}</Td>
+  <Td >{(calculateTotal('PTDSalesCY',filteredData) - calculateTotal('PTDSalesLY',filteredData)).toFixed(2)}</Td>
   <Td >
     {calculatePercentage(calculateTotal('PTDSalesCY',filteredData) - calculateTotal('PTDSalesLY',filteredData), calculateTotal('PTDSalesCY',filteredData)).toFixed(2)}%
   </Td>
 
   {/* YDT Sales */}
-  <Td >{calculateTotal('YTDSalesCY',filteredData)}</Td>
-  <Td >{calculateTotal('YTDSalesLY',filteredData)}</Td>
-  <Td >{calculateTotal('YTDSalesCY',filteredData) - calculateTotal('YTDSalesLY',filteredData)}</Td>
+  <Td >{calculateTotal('YTDSalesCY',filteredData).toFixed(2)}</Td>
+  <Td >{calculateTotal('YTDSalesLY',filteredData).toFixed(2)}</Td>
+  <Td >{(calculateTotal('YTDSalesCY',filteredData) - calculateTotal('YTDSalesLY',filteredData)).toFixed(2)}</Td>
   <Td >
     {calculatePercentage(calculateTotal('YTDSalesCY',filteredData) - calculateTotal('YTDSalesLY',filteredData), calculateTotal('YTDSalesCY',filteredData)).toFixed(2)}%
   </Td>
 
   {/* R13 Sales */}
-  <Td >{calculateTotal('R13SalesCY',filteredData)}</Td>
-  <Td >{calculateTotal('R13SalesLY',filteredData)}</Td>
-  <Td >{calculateTotal('R13SalesCY',filteredData) - calculateTotal('R13SalesLY',filteredData)}</Td>
+  <Td >{calculateTotal('R13SalesCY',filteredData).toFixed(2)}</Td>
+  <Td >{calculateTotal('R13SalesLY',filteredData).toFixed(2)}</Td>
+  <Td >{(calculateTotal('R13SalesCY',filteredData) - calculateTotal('R13SalesLY',filteredData)).toFixed(2)}</Td>
   <Td >
     {calculatePercentage(calculateTotal('R13SalesCY',filteredData) - calculateTotal('R13SalesLY',filteredData), calculateTotal('R13SalesCY',filteredData)).toFixed(2)}%
   </Td>
 </Tr>
       </Tbody>
     </Table>
+    </Box>
      {/* Table two */}
-     <Table mt={30}>
+    
+     <Box w={'full'} overflow={'auto'}> 
+<Table
+        variant="simple"
+        bg={"white"}
+        rounded={"lg"}
+        overflow={"scroll"}
+        w={"full"}
+      >
         <Tbody>
           <Tr>
             <Td rowSpan={2} >
@@ -547,12 +239,12 @@ useEffect(() => {
             <Tr key={row._id}>
               <Td >{row.storeName}</Td>
               {/* Net Sales Data */}
-              <Td >{row.dailySalesCY}</Td>
+              <Td >{row.dailySalesCY.toFixed(2)}</Td>
              
               {/* Transaction Count Data */}
-              <Td >{row.dailyTransCountCY}</Td>
-              <Td >{row.dailyTransCountLY}</Td>
-              <Td >{row.dailyTransCountCY - row.dailyTransCountLY}</Td>
+              <Td >{row.dailyTransCountCY.toFixed(2)}</Td>
+              <Td >{row.dailyTransCountLY.toFixed(2)}</Td>
+              <Td >{(row.dailyTransCountCY - row.dailyTransCountLY).toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.dailyTransCountCY - row.dailyTransCountLY, row.dailyTransCountCY).toFixed(2)}%
               </Td>
@@ -573,35 +265,35 @@ useEffect(() => {
              
               {/* Cash Data */}
               {/* ... add Cash data columns similarly */}
-              <Td >{row.CashOverShort}</Td>
+              <Td >{(row.CashOverShort).toFixed(2)}</Td>
               {/* Del After Data */}
               {/* ... add Del After data columns similarly */}
              
-              <Td >{row.DeletionsAfter}</Td>
+              <Td >{row.DeletionsAfter.toFixed(2)}</Td>
               <Td >
                 {calculatePercentage(row.DeletionsAfter , row.dailySalesCY).toFixed(2)}%
               </Td>
               {/* ICOS Data */}
-              <Td >{row.ICOSVarPercent}</Td>
-              <Td >{row.WTDICOSVarPercent}</Td>
+              <Td >{row.ICOSVarPercent.toFixed(2)}</Td>
+              <Td >{row.WTDICOSVarPercent.toFixed(2)}</Td>
             </Tr>
           ))}
           <Tr>
     <Td >Total</Td>
-    <Td >{calculateTotal('dailySalesCY',filteredData)}</Td>
-    <Td >{calculateTotal('dailyTransCountCY',filteredData)}</Td>
-    <Td >{calculateTotal('dailyTransCountLY',filteredData)}</Td>
-    <Td >{calculateTotal('dailyTransCountCY',filteredData) - calculateTotal('dailyTransCountLY',filteredData)}</Td>
+    <Td >{calculateTotal('dailySalesCY',filteredData).toFixed(2)}</Td>
+    <Td >{calculateTotal('dailyTransCountCY',filteredData).toFixed(2)}</Td>
+    <Td >{calculateTotal('dailyTransCountLY',filteredData).toFixed(2)}</Td>
+    <Td >{(calculateTotal('dailyTransCountCY',filteredData) - calculateTotal('dailyTransCountLY',filteredData)).toFixed(2)}</Td>
     <Td >
       {calculatePercentage(
         calculateTotal('dailyTransCountCY',filteredData) - calculateTotal('dailyTransCountLY',filteredData),
         calculateTotal('dailyTransCountCY',filteredData)
       ).toFixed(2)}%
     </Td>
-    <Td >{calculateTotal('dailySalesCY',filteredData)}</Td>
-    <Td >{calculateTotal('dailySalesLY',filteredData)}</Td>
+    <Td >{calculateTotal('dailySalesCY',filteredData).toFixed(2)}</Td>
+    <Td >{calculateTotal('dailySalesLY',filteredData).toFixed(2)}</Td>
     <Td >
-      {calculateTotal('dailySalesCY',filteredData) - calculateTotal('dailySalesLY',filteredData)}
+      {(calculateTotal('dailySalesCY',filteredData) - calculateTotal('dailySalesLY',filteredData)).toFixed(2)}
     </Td>
     <Td >
       {calculatePercentage(
@@ -609,22 +301,23 @@ useEffect(() => {
         calculateTotal('dailySalesCY',filteredData)
       ).toFixed(2)}%
     </Td>
-    <Td >{calculateTotal('CashOverShort',filteredData)}</Td>
+    <Td >{calculateTotal('CashOverShort',filteredData).toFixed(2)}</Td>
     {/* Add total for Del After */}
-    <Td >{calculateTotal('DeletionsAfter',filteredData)}</Td>
+    <Td >{calculateTotal('DeletionsAfter',filteredData).toFixed(2)}</Td>
     <Td >
-      {calculatePercentage(calculateTotal('DeletionsAfter',filteredData), calculateTotal('dailySalesCY',filteredData)).toFixed(2)}%
+      {(calculatePercentage(calculateTotal('DeletionsAfter',filteredData), calculateTotal('dailySalesCY',filteredData))).toFixed(2)}%
     </Td>
     
     {/* Add total for Del After */}
-    <Td >{calculateTotal('ICOSVarPercent',filteredData)}</Td>
+    <Td >{calculateTotal('ICOSVarPercent',filteredData).toFixed(2)}</Td>
     <Td >
-      {calculateTotal('WTDICOSVarPercent',filteredData)}
+      {calculateTotal('WTDICOSVarPercent',filteredData).toFixed(2)}
     </Td>
     {/* ... add total for other columns similarly */}
   </Tr>
         </Tbody>
       </Table>
+      </Box>
     </div>
   );
 };
