@@ -88,7 +88,8 @@ export default function FlashReport() {
       </Box>
 
       {/* <Center mt="sm"><Box bg="var(--mantine-color-blue-light)">  */}
-      <Text fontSize='2xl'>Daily Flash Report</Text>
+      <Text fontSize='3xl'>TB Daily Flash Report</Text>
+
       {/* </Box>
       </Center> */}
 

@@ -64,21 +64,21 @@ const routes = [
     component: Dashboard,
   },
   {
-    name: 'TaccoBells',
+    name: 'Taco Bell',
     layout: '/admin',
     collapse: true,
     path: '/messages',
     icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
     items:[
       {
-        name: 'Weekly Report',
+        name: 'TB Weekly Flash Report',
         layout: '/admin',
         path: '/week-report',
         icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
         component: Week,
       },
       {
-        name: 'weekly comparaition',
+        name: 'Weekly Comparison Reports',
         layout: '/admin',
        
         icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
@@ -87,49 +87,49 @@ const routes = [
         path: "/jlj",
     
         items: [ {
-          name: 'Weekly uberEats',
+          name: 'TB Weekly UberEats Report',
           layout: '/admin',
           path: '/uber-eats',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
           component: uberEats,
         },
         {
-          name: 'Weekly grubhub',
+          name: 'TB Weekly GrubHUb Report',
           layout: '/admin',
           path: '/grubhub',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
           component: weeklygrubhub,
         },
         {
-          name: 'Weekly doordash',
+          name: 'TB Weekly doordash Report',
           layout: '/admin',
           path: '/doordash',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
           component: doordash,
         },
         {
-          name: 'Weekly Companion',
+          name: 'TB Weekly Companion',
           layout: '/admin',
           path: '/sales',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
           component: SalesReport,
         },
         {
-          name: 'Mclane Purchase',
+          name: 'TB Weekly Mclane Purchase',
           layout: '/admin',
           path: '/weekly-mclane-purchase',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
           component: weeklyMclane,
         },
         {
-          name: 'Customer Count',
+          name: 'TB Weekly Customer Count',
           layout: '/admin',
           path: '/weekly-customer-count',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
           component: CustomerCount,
         },
         {
-          name: 'Average Ticket Size',
+          name: 'TB Weekly Average Ticket Size',
           layout: '/admin',
           path: '/average-ticket-size',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
@@ -137,7 +137,7 @@ const routes = [
         },
       
         {
-          name: 'weekly employee Productivity',
+          name: 'TB Weekly Employee Productivity',
           layout: '/admin',
           path: '/employee-productivity',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
@@ -145,7 +145,7 @@ const routes = [
         },
       
         {
-          name: 'weekly mclanePercent',
+          name: 'TB Weekly Mclane Percent',
           layout: '/admin',
           path: '/mclane-percent',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
@@ -153,7 +153,7 @@ const routes = [
         },
       
         {
-          name: 'Labour Hours',
+          name: 'TB Weekly Labour Hours',
           layout: '/admin',
           path: '/labour-hours',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
@@ -165,7 +165,7 @@ const routes = [
       },
     
       {
-        name: 'Daily Flash Report',
+        name: 'TB Daily Flash Report',
         layout: '/admin',
         path: '/flash-report',
         icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
@@ -182,14 +182,14 @@ const routes = [
     icon: <Icon as={MdMessage} width='20px' height='20px' color='inherit' />,
     items:[
       {
-        name: 'Weekly Report',
+        name: 'TB Weekly Flash Report',
         layout: '/admin',
         path: '/wendy/week-report',
         icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
         component: Week2,
       },
       {
-        name: 'weekly comparation',
+        name: 'TB Weekly comparation',
         layout: '/admin',
        
         icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
@@ -198,49 +198,49 @@ const routes = [
         path: "/wendy/jlj",
     
         items: [ {
-          name: 'Weekly uberEats',
+          name: 'TB Weekly UberEats Report',
           layout: '/admin',
           path: '/wendy/uber-eats',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
           component: uberEats2,
         },
         {
-          name: 'Weekly grubhub',
+          name: 'TB Weekly GrubHUb Report',
           layout: '/admin',
           path: '/wendy/grubhub',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
           component: weeklygrubhub2,
         },
         {
-          name: 'Weekly doordash',
+          name: 'TB Weekly doordash Report',
           layout: '/admin',
           path: '/wendy/doordash',
           icon: <Icon as={GoReport} width='20px' height='20px' color='inherit' />,
           component: doordash2,
         },
         {
-          name: 'Weekly Companion',
+          name: 'TB Weekly Companion Report',
           layout: '/admin',
           path: '/wendy/sales',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
           component: SalesReport2,
         },
         {
-          name: 'Food Purchase',
+          name: 'TB Weekly Food Purchase Report',
           layout: '/admin',
           path: '/wendy/weekly-food-purchase',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
           component: weeklyMclane2,
         },
         {
-          name: 'Customer Count',
+          name: 'TB Weekly Customer Count',
           layout: '/admin',
           path: '/wendy/weekly-customer-count',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
           component: CustomerCount2,
         },
         {
-          name: 'Average Ticket Size',
+          name: 'TB Weekly Average Ticket Size',
           layout: '/admin',
           path: '/wendy/average-ticket-size',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
@@ -248,7 +248,7 @@ const routes = [
         },
       
         {
-          name: 'weekly employee Productivity',
+          name: 'TB Weekly employee Productivity',
           layout: '/admin',
           path: '/wendy/employee-productivity',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
@@ -256,7 +256,7 @@ const routes = [
         },
       
         {
-          name: 'weekly foodPercent',
+          name: 'TB weekly Food Percent',
           layout: '/admin',
           path: '/wendy/food-percent',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
@@ -264,7 +264,7 @@ const routes = [
         },
       
         {
-          name: 'Labour Hours',
+          name: 'TB Weekly Labour Hours',
           layout: '/admin',
           path: '/wendy/labour-hours',
           icon: <Icon as={MdCompare} width='20px' height='20px' color='inherit' />,
@@ -276,7 +276,7 @@ const routes = [
       },
     
       {
-        name: 'Daily Flash Report',
+        name: 'TB Daily Flash Report',
         layout: '/admin',
         path: '/wendy/flash-report',
         icon: <Icon as={MdWeekend} width='20px' height='20px' color='inherit' />,
